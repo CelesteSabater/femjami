@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace retrobarcelona.Utils.Singleton
+namespace femjami.Utils.Singleton
 {
     public abstract class SingletonPersistent<T> : Singleton<T> where T : MonoBehaviour
     {

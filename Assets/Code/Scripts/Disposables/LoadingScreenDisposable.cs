@@ -1,8 +1,8 @@
 using UnityEngine;
 using System;
-using retrobarcelona.UI;
+using femjami.UI;
 
-namespace retrobarcelona.Disposable
+namespace femjami.Disposable
 {
     public class LoadingScreenDisposable: IDisposable
     {

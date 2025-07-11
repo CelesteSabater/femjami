@@ -1,7 +1,7 @@
-using retrobarcelona.Managers.ControlsManager;
+using femjami.Managers.ControlsManager;
 using UnityEngine;
 
-namespace retrobarcelona.Systems.Talkable
+namespace femjami.Systems.Talkable
 {
     public class Interactor : MonoBehaviour
     {

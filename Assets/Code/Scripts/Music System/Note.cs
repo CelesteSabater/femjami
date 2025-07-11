@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace retrobarcelona.MusicSystem
+namespace femjami.MusicSystem
 {
     public class Note : MonoBehaviour {
         public float _speed = 5f;

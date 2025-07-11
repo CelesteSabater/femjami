@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace retrobarcelona.UI
+namespace femjami.UI
 {
     public class LoadingScreen : MonoBehaviour
     {

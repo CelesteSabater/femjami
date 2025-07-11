@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using System;
 
-namespace retrobarcelona.DialogueTree.Runtime
+namespace femjami.DialogueTree.Runtime
 {
     [CreateAssetMenu(menuName = "Tree/DialogueTree/DialogueTree")]
     public class DialogueTree : ScriptableObject

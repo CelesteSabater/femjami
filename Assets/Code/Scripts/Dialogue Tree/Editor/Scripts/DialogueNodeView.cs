@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 
 using UnityEngine.UIElements;
-using retrobarcelona.DialogueTree.Runtime;
+using femjami.DialogueTree.Runtime;
 
 using UnityEditor.UIElements;
 
 using UnityEditor;
 
-namespace retrobarcelona.DialogueTree.Editor
+namespace femjami.DialogueTree.Editor
 {
     public class DialogueNodeView : UnityEditor.Experimental.GraphView.Node
     {

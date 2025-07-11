@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace retrobarcelona.MusicSystem
+namespace femjami.MusicSystem
 {
     public class ChangeNoteOpacity : MonoBehaviour
     {

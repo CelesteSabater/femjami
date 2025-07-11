@@ -4,9 +4,9 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor;
 using System;
 using System.Linq;
-using retrobarcelona.DialogueTree.Runtime;
+using femjami.DialogueTree.Runtime;
 
-namespace retrobarcelona.DialogueTree.Editor
+namespace femjami.DialogueTree.Editor
 {
     public class DialogueTreeView : GraphView
     {
@@ -15,7 +15,7 @@ namespace retrobarcelona.DialogueTree.Editor
 
         private UnityEngine.Vector2 worldMousePosition = UnityEngine.Vector2.zero;
 
-        retrobarcelona.DialogueTree.Runtime.DialogueTree _tree;
+        femjami.DialogueTree.Runtime.DialogueTree _tree;
         public DialogueTreeView() 
         {
             Insert(0, new GridBackground());
@@ -52,7 +52,7 @@ namespace retrobarcelona.DialogueTree.Editor
             return GetNodeByGuid(node.GetGUID()) as DialogueNodeView;
         }
 
-        internal void PopulateView(retrobarcelona.DialogueTree.Runtime.DialogueTree tree)
+        internal void PopulateView(femjami.DialogueTree.Runtime.DialogueTree tree)
         {
             _tree = tree;
 
@@ -74,7 +74,7 @@ namespace retrobarcelona.DialogueTree.Editor
 
                 foreach (DialogueNode parent in _tree.GetNodes())
                 {
-                    List<DialogueNode> children = retrobarcelona.DialogueTree.Runtime.DialogueTree.GetChildren(parent);
+                    List<DialogueNode> children = femjami.DialogueTree.Runtime.DialogueTree.GetChildren(parent);
                     foreach (DialogueNode child in children)
                     {
                         if (child != null)

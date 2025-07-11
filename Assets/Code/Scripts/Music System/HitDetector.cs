@@ -1,14 +1,14 @@
 using System;
 using System.Runtime.CompilerServices;
 using Cysharp.Threading.Tasks;
-using retrobarcelona.Managers;
-using retrobarcelona.Managers.ControlsManager;
-using retrobarcelona.MusicSystem;
-using retrobarcelona.Systems.AudioSystem;
-using retrobarcelona.UI;
+using femjami.Managers;
+using femjami.Managers.ControlsManager;
+using femjami.MusicSystem;
+using femjami.Systems.AudioSystem;
+using femjami.UI;
 using UnityEngine;
 
-namespace retrobarcelona.MusicSystem
+namespace femjami.MusicSystem
 {
     public class HitDetector : MonoBehaviour
     {

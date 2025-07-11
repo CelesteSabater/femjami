@@ -1,7 +1,7 @@
 using UnityEngine;
-using retrobarcelona.Utils.Singleton;
+using femjami.Utils.Singleton;
 
-namespace retrobarcelona.UI
+namespace femjami.UI
 {
     public class UIManager : Singleton<UIManager>
     {

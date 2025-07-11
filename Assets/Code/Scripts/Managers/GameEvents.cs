@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace retrobarcelona.Managers
+namespace femjami.Managers
 {
     public class GameEvents : MonoBehaviour
     {

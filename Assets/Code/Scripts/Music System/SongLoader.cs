@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.IO;
-using retrobarcelona.Config;
-using retrobarcelona.Managers;
+using femjami.Config;
+using femjami.Managers;
 
-namespace retrobarcelona.MusicSystem {
+namespace femjami.MusicSystem {
     [System.Serializable]
     public class NoteData {
         public float time;

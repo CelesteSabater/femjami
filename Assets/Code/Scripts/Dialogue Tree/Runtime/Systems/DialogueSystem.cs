@@ -2,14 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using retrobarcelona.Utils.Singleton;
-using retrobarcelona.Managers;
-using retrobarcelona.UI;
-using retrobarcelona.Systems.AudioSystem;
-using retrobarcelona.Managers.ControlsManager;
+using femjami.Utils.Singleton;
+using femjami.Managers;
+using femjami.UI;
+using femjami.Systems.AudioSystem;
+using femjami.Managers.ControlsManager;
 using DialogueTree.Runtime;
 
-namespace retrobarcelona.DialogueTree.Runtime
+namespace femjami.DialogueTree.Runtime
 {
     [Serializable]
     public class StyleFormat

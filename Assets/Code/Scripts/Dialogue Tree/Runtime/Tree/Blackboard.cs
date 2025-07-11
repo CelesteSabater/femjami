@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace retrobarcelona.DialogueTree.Runtime
+namespace femjami.DialogueTree.Runtime
 {
     [System.Serializable]
     public class Blackboard 

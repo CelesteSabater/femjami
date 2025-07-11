@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace retrobarcelona.MusicSystem
+namespace femjami.MusicSystem
 {
     // Enum que define los diferentes tipos de notas (Correcta, Casi Correcta, Casi Incorrecta, Incorrecta)
     public enum NoteHitTiming

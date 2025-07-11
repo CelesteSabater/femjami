@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using retrobarcelona.Managers;
+using femjami.Managers;
 using UnityEngine;
 
 public class CheerAnimation : MonoBehaviour

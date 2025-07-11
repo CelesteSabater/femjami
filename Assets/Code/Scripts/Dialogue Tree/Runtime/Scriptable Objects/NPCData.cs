@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace retrobarcelona.DialogueTree.Runtime
+namespace femjami.DialogueTree.Runtime
 {
     [CreateAssetMenu(fileName = "NewNPC", menuName = "Tree/DialogueTree/NPC Data")]
     public class NPCData : ScriptableObject

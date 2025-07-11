@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using retrobarcelona.Utils.Singleton;
+using femjami.Utils.Singleton;
 using UnityEngine;
-using retrobarcelona.MusicSystem;
-using retrobarcelona.Managers;
+using femjami.MusicSystem;
+using femjami.Managers;
 
-namespace retrobarcelona.UI
+namespace femjami.UI
 {
     public class SistemaDePuntos : Singleton<SistemaDePuntos>
     {
@@ -64,7 +64,7 @@ namespace retrobarcelona.UI
         }
 
         // Calcula los puntos según el tipo de nota (Correcta, Casi Correcta, Incorrecta, etc.)
-        public void CalcularPuntos(retrobarcelona.MusicSystem.NoteHitTiming nota)
+        public void CalcularPuntos(femjami.MusicSystem.NoteHitTiming nota)
         {
             switch (nota)
             {

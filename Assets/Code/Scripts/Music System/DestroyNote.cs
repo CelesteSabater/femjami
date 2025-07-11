@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using retrobarcelona.Systems.AudioSystem;
+using femjami.Systems.AudioSystem;
 using UnityEngine;
-using retrobarcelona.UI;
+using femjami.UI;
 
-namespace retrobarcelona.MusicSystem
+namespace femjami.MusicSystem
 {
     public class DestroyNote : MonoBehaviour
     {

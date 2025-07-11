@@ -1,6 +1,6 @@
 using UnityEngine.UIElements;
 
-namespace retrobarcelona.DialogueTree.Editor
+namespace femjami.DialogueTree.Editor
 {
     public class SplitView : TwoPaneSplitView
     {

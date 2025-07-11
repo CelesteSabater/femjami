@@ -1,14 +1,14 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using retrobarcelona.Managers.ControlsManager;
-using retrobarcelona.UI;
-using retrobarcelona.Disposable;
-using retrobarcelona.Systems.AudioSystem;
-using retrobarcelona.DialogueTree.Runtime;
-using retrobarcelona.MusicSystem;
+using femjami.Managers.ControlsManager;
+using femjami.UI;
+using femjami.Disposable;
+using femjami.Systems.AudioSystem;
+using femjami.DialogueTree.Runtime;
+using femjami.MusicSystem;
 
-namespace retrobarcelona.Other
+namespace femjami.Other
 {
     public class GameInitiator : MonoBehaviour
     {

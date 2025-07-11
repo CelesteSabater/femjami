@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using retrobarcelona.DialogueTree.Runtime;
+using femjami.DialogueTree.Runtime;
 
 namespace DialogueTree.Runtime
 {

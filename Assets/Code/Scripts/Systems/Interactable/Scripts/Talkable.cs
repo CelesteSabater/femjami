@@ -1,8 +1,8 @@
 using TMPro;
 using UnityEngine;
-using retrobarcelona.DialogueTree.Runtime;
+using femjami.DialogueTree.Runtime;
 
-namespace retrobarcelona.Systems.Talkable
+namespace femjami.Systems.Talkable
 {
     public class Talkable : MonoBehaviour, IInteractable
     {
@@ -13,8 +13,8 @@ namespace retrobarcelona.Systems.Talkable
         public GameObject PromptPrefab => _promptPrefab;
         public Transform PromptLocation => _promtLocation;
 
-        [SerializeField] private retrobarcelona.DialogueTree.Runtime.DialogueTree _dialogueTree;
-        [SerializeField] private retrobarcelona.DialogueTree.Runtime.NPCData _npcData;
+        [SerializeField] private femjami.DialogueTree.Runtime.DialogueTree _dialogueTree;
+        [SerializeField] private femjami.DialogueTree.Runtime.NPCData _npcData;
 
         public bool IsActive() => _isActive;
         public bool SetActive(bool active) => _isActive = active;
@@ -31,7 +31,7 @@ namespace retrobarcelona.Systems.Talkable
             DialogueEvents.current.onSetDialogueNPC -= OnSetDialogueNPC;
         }
 
-        private void OnSetDialogueNPC(retrobarcelona.DialogueTree.Runtime.DialogueTree dialogueTree, NPCData npcData)
+        private void OnSetDialogueNPC(femjami.DialogueTree.Runtime.DialogueTree dialogueTree, NPCData npcData)
         {
             if (npcData != _npcData)
                 return;

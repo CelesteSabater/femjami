@@ -1,9 +1,9 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
-using retrobarcelona.Systems.AudioSystem;
+using femjami.Systems.AudioSystem;
 
-namespace retrobarcelona.DialogueTree.Runtime
+namespace femjami.DialogueTree.Runtime
 {
     public abstract class DialogueNode : ScriptableObject
     {

@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 using UnityEditor.Callbacks;
 
 
-namespace retrobarcelona.DialogueTree.Editor
+namespace femjami.DialogueTree.Editor
 {
     public class DialogueTreeEditor : EditorWindow
     {
@@ -25,7 +25,7 @@ namespace retrobarcelona.DialogueTree.Editor
         [OnOpenAsset]
         public static bool OnOpenAsset(int instanceId, int line)
         {
-            if (Selection.activeObject is retrobarcelona.DialogueTree.Runtime.DialogueTree)
+            if (Selection.activeObject is femjami.DialogueTree.Runtime.DialogueTree)
             {
                 OpenWindow();
                 return true;
@@ -100,7 +100,7 @@ namespace retrobarcelona.DialogueTree.Editor
 
         private void OnSelectionChange()
         {
-            retrobarcelona.DialogueTree.Runtime.DialogueTree tree = Selection.activeObject as retrobarcelona.DialogueTree.Runtime.DialogueTree;
+            femjami.DialogueTree.Runtime.DialogueTree tree = Selection.activeObject as femjami.DialogueTree.Runtime.DialogueTree;
 
             if (tree && _treeView != null)
             {

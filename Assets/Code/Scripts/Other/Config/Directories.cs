@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace retrobarcelona.Config
+namespace femjami.Config
 {
     public static class Directories
     {

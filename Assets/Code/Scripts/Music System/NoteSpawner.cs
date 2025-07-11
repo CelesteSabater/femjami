@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
-using retrobarcelona.Utils.Singleton;
-using retrobarcelona.Managers;
-using retrobarcelona.Systems.AudioSystem;
+using femjami.Utils.Singleton;
+using femjami.Managers;
+using femjami.Systems.AudioSystem;
 using UnityEngine.SocialPlatforms.Impl;
 using Cysharp.Threading.Tasks;
-using retrobarcelona.DialogueTree.Runtime;
+using femjami.DialogueTree.Runtime;
 
-namespace retrobarcelona.MusicSystem
+namespace femjami.MusicSystem
 {
     public class NoteSpawner : Singleton<NoteSpawner> 
     {

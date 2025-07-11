@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using retrobarcelona.Utils.Singleton;
+using femjami.Utils.Singleton;
 
-namespace retrobarcelona.Managers.ControlsManager
+namespace femjami.Managers.ControlsManager
 {
     public class ControlsManager : Singleton<ControlsManager>
     {

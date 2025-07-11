@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace retrobarcelona.Systems.Talkable
+namespace femjami.Systems.Talkable
 {
     public interface IInteractable
     {
