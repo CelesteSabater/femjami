@@ -22,8 +22,6 @@ namespace femjami.Other
         [SerializeField] private ControlsManager _controlsManager;
         [SerializeField] private UIManager _uiManager;
         [SerializeField] private DialogueSystem _dialogueSystem;
-        [SerializeField] private NoteSpawner _noteSpawner;
-        [SerializeField] private DialogueTree.Runtime.DialogueTree _dialogueTree;
 
         private int _currentStep, _maxSteps;
 
@@ -68,7 +66,6 @@ namespace femjami.Other
             _controlsManager = Instantiate(_controlsManager);
             _uiManager = Instantiate(_uiManager);
             _dialogueSystem = Instantiate(_dialogueSystem);
-            _noteSpawner = Instantiate(_noteSpawner);
 
             await UniTask.Yield();
         }
@@ -82,8 +79,6 @@ namespace femjami.Other
         {
             _audioSystem.StartMusic();
             _controlsManager.ActivateGameControls();
-            _dialogueSystem.StartDialogue(_dialogueTree);
-
             await UniTask.Yield();
         }
 

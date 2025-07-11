@@ -9,28 +9,14 @@ public class MenuSystem : MonoBehaviour
     // public GameObject playButton;
     public GameObject nivelesPanel;
     public GameObject optionsPanel;
-    public GameObject recomendacionPanel;
     public GameObject confirmarPanel;
 
     public Animator animator1;
     public Animator animator2;
 
-
-
-
-    void Start()
-    {
-        // SelecionMando(playButton);
-    }
-
     public void Jugar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void Jugar2()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        StartCoroutine(PlayAfterDelay(1f));
     }
 
     public void Opciones()
@@ -39,25 +25,10 @@ public class MenuSystem : MonoBehaviour
 
     }
 
-    public void Recomendacion()
-    {
-        recomendacionPanel.SetActive(!recomendacionPanel.activeSelf);
-
-    }
-
-    public void Niveles(GameObject panel)
-    {
-        animator1.SetBool("Abrir", true);
-        animator2.SetBool("Abrir", true);
-
-        StartCoroutine(ActivatePanelAfterDelay(panel, 1f));
-    }
-
-    private IEnumerator ActivatePanelAfterDelay(GameObject panel, float delay)
+    private IEnumerator PlayAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        panel.SetActive(false);
-        nivelesPanel.SetActive(!nivelesPanel.activeSelf);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Confirmar(GameObject panel)
@@ -82,13 +53,6 @@ public class MenuSystem : MonoBehaviour
     {
         panel.SetActive(true);
     }
-
-
-    // public void SelecionMando(GameObject selectedButton)
-    // {
-    //     // Debug.Log("Seleccionando el botón: " + selectedButton.name);
-    //     EventSystem.current.SetSelectedGameObject(selectedButton);
-    // }
 
     public void Salir()
     {
