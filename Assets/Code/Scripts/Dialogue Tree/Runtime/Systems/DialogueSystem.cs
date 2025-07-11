@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
 using femjami.Utils.Singleton;
 using femjami.Managers;
 using femjami.UI;
 using femjami.Systems.AudioSystem;
-using femjami.Managers.ControlsManager;
 using DialogueTree.Runtime;
 
 namespace femjami.DialogueTree.Runtime
@@ -32,15 +32,16 @@ namespace femjami.DialogueTree.Runtime
         public float _interactTimeoutDelta;
         public float _moveTimeoutDelta;
         
-        private bool _inDialogue = true;
-        private void SetInDialogue(bool value) => _inDialogue = value;
+        private bool _inDialogue = false;
+        private void SetInDialogue(bool value)
+        {
+             _inDialogue = value;
+        }
 
         private DialogueTree _dialogueTree;
         private DialogueNode _currentNode;
         private StartNode _lastBranchStart;
         private NPCData _npcData;
-
-        private bool _songFinished = false;
 
         [SerializeField] private StyleFormat[] _styleFormats;
         private const string HTML_ALPHA = "<alpha=#00>";
@@ -57,7 +58,6 @@ namespace femjami.DialogueTree.Runtime
         {
             ClearUI();
             GameEvents.current.onSetDialogue += SetInDialogue;
-            GameEvents.current.onSongFinished += SongFinished;
 
             _interactTimeoutDelta = InteractTimeout;
             _moveTimeoutDelta = MoveTimeout;
@@ -66,14 +66,6 @@ namespace femjami.DialogueTree.Runtime
         private void OnDestroy()
         {
             GameEvents.current.onSetDialogue -= SetInDialogue;
-            GameEvents.current.onSongFinished -= SongFinished;
-        }
-
-        void SongFinished()
-        {
-            _songFinished = true;
-            GameEvents.current.SetDialogue(true);
-            NextLine();
         }
 
         private void Update()
@@ -81,7 +73,7 @@ namespace femjami.DialogueTree.Runtime
             if (_inDialogue)
             {
                 Interact();
-                //Move();
+                Move();
             }
         }
 
@@ -94,7 +86,6 @@ namespace femjami.DialogueTree.Runtime
                 _npcData = dialogueTree._blackboard._npcData;
 
             UIManager.Instance.ActivateDialogue();
-            GameEvents.current.SetDialogue(true);
             _currentTheme = AudioSystem.Instance.GetCurrentMusic();
 
             ChangeCurrentNode(dialogueTree.GetRootNode());
@@ -112,8 +103,7 @@ namespace femjami.DialogueTree.Runtime
             _dialogueTree = dialogueTree;
             _npcData = npcData;
 
-            UIManager.Instance.ActivateDialogue();
-            GameEvents.current.SetDialogue(true);
+            UIManager.Instance.ActivateDialogue();        
             _currentTheme = AudioSystem.Instance.GetCurrentMusic();
 
             ChangeCurrentNode(dialogueTree.GetRootNode());
@@ -148,7 +138,7 @@ namespace femjami.DialogueTree.Runtime
                 return;
             }
 
-            float direction = ControlsManager.Instance.GetMovementDirection().y;
+            float direction = StarterAssetsInputs.Instance.move.y;
 
             if (direction < 0)
             {
@@ -164,50 +154,18 @@ namespace femjami.DialogueTree.Runtime
 
         private void Interact()
         {
-            StartBranch node = _currentNode as StartBranch;
-
-            if (ControlsManager.Instance.GetIsLane4() && _interactTimeoutDelta <= 0)
-            {
-                if (node != null) 
-                    if (node._choices.Count < 1)
-                        return;
-
-                _currentAnswer = 0;
-                _interactTimeoutDelta = InteractTimeout;
-                InteractKey();
-            } else if (ControlsManager.Instance.GetIsLane3() && _interactTimeoutDelta <= 0)
-            {
-                if (node != null) 
-                    if (node._choices.Count < 2)
-                        return;
-
-                _currentAnswer = 1;
-                _interactTimeoutDelta = InteractTimeout;
-                InteractKey();
-            } else if (ControlsManager.Instance.GetIsLane2() && _interactTimeoutDelta <= 0)
-            {
-                if (node != null) 
-                    if (node._choices.Count < 3)
-                        return;
-
-                _currentAnswer = 2;
-                _interactTimeoutDelta = InteractTimeout;
-                InteractKey();
-            } else if (ControlsManager.Instance.GetIsLane1() && _interactTimeoutDelta <= 0)
-            {
-                if (node != null) 
-                    if (node._choices.Count < 4)
-                        return;
-
-                _currentAnswer = 3;
-                _interactTimeoutDelta = InteractTimeout;
-                InteractKey();
-            }
-
             if (_interactTimeoutDelta >= 0.0f)
             {
                 _interactTimeoutDelta -= Time.deltaTime;
+                return;
             }
+
+            if (!StarterAssetsInputs.Instance.interact)
+                return;
+
+            StartBranch node = _currentNode as StartBranch;
+            _interactTimeoutDelta = InteractTimeout;
+            InteractKey();
         }
 
         private void InteractKey()
@@ -255,11 +213,7 @@ namespace femjami.DialogueTree.Runtime
             switch (_currentNode)
             {         
                 case ChangeScene _node:
-                    break;
-                case Song _node:
-                    if (_songFinished)
-                        ChangeCurrentNode(_node._child);
-                    break;       
+                    break;      
                 case EndNode _node:
                     EndDialogue(_node);
                     break;

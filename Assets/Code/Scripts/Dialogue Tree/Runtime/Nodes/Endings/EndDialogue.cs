@@ -8,7 +8,7 @@ namespace femjami.DialogueTree.Runtime
     {
         protected override void EndAction() 
         { 
-            SceneManager.LoadScene("Menu");
+        
         }
     }
 }

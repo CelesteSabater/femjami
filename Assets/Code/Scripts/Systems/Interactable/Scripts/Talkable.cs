@@ -1,8 +1,9 @@
 using TMPro;
 using UnityEngine;
 using femjami.DialogueTree.Runtime;
+using femjami.Managers;
 
-namespace femjami.Systems.Talkable
+namespace femjami.Systems.Interactable
 {
     public class Talkable : MonoBehaviour, IInteractable
     {
@@ -25,24 +26,33 @@ namespace femjami.Systems.Talkable
         private void Start()
         {
             DialogueEvents.current.onSetDialogueNPC += OnSetDialogueNPC;
-        }       
+        }
 
-        private void OnDestroy() {
+        private void OnDestroy()
+        {
             DialogueEvents.current.onSetDialogueNPC -= OnSetDialogueNPC;
+            if (_promptGo != null)
+            {
+                Destroy(_promptGo);
+            }
         }
 
         private void OnSetDialogueNPC(femjami.DialogueTree.Runtime.DialogueTree dialogueTree, NPCData npcData)
         {
             if (npcData != _npcData)
                 return;
-            
+
             _dialogueTree = dialogueTree;
-        }       
+        }
 
         public bool Interact(Interactor interactor)
         {
             if (!delay)
+            { 
+                GameEvents.current.SetDialogue(true);
                 DialogueSystem.Instance.StartDialogue(_dialogueTree, _npcData);
+            }
+                
             delay = true;
             return true;
         }
@@ -52,7 +62,7 @@ namespace femjami.Systems.Talkable
             if (show)
                 GeneratePrompt();
             else
-                DeltePrompt();
+                DeletePrompt();
         }
 
         private void GeneratePrompt()
@@ -64,11 +74,11 @@ namespace femjami.Systems.Talkable
             _promptGo = Instantiate(_promptPrefab, PromptLocation.position, Quaternion.identity);
         }
 
-        private void DeltePrompt()
+        private void DeletePrompt()
         {
             if (_promptGo == null)
                 return;
-            
+
             Destroy(_promptGo);
         }
     }

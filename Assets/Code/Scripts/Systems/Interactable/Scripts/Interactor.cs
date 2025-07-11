@@ -1,7 +1,8 @@
-using femjami.Managers.ControlsManager;
+using System.Linq;
+using StarterAssets;
 using UnityEngine;
 
-namespace femjami.Systems.Talkable
+namespace femjami.Systems.Interactable
 {
     public class Interactor : MonoBehaviour
     {
@@ -9,7 +10,7 @@ namespace femjami.Systems.Talkable
         [SerializeField] private float _interactionPointRadius = 0.5f;
         [SerializeField] private LayerMask _interactableMask;
 
-        private Collider2D _collider;
+        private Collider[] _collider;
         private IInteractable _interactable;
 
         private void Update()
@@ -20,15 +21,15 @@ namespace femjami.Systems.Talkable
 
         private void CheckInteractable()
         {   
-            _collider = Physics2D.OverlapCircle(_interactionPoint.position, _interactionPointRadius, _interactableMask);
-            if (_collider != null)
+            _collider = Physics.OverlapSphere(_interactionPoint.position, _interactionPointRadius, _interactableMask);
+            if (_collider.Count() != 0)
             {
-                if (_interactable != null && _interactable != _collider.GetComponent<IInteractable>())
+                if (_interactable != null && _interactable != _collider[0].GetComponent<IInteractable>())
                     _interactable.SetupPrompt(false);
 
-                if (_collider.GetComponent<IInteractable>().IsActive())
+                if (_collider[0].GetComponent<IInteractable>().IsActive())
                 {
-                    _interactable = _collider.GetComponent<IInteractable>();
+                    _interactable = _collider[0].GetComponent<IInteractable>();
                     _interactable.SetupPrompt(true);
                 }
             } else
@@ -43,7 +44,7 @@ namespace femjami.Systems.Talkable
 
         private void Interact()
         {
-            if (!ControlsManager.Instance.GetIsInteracting())
+            if (!StarterAssetsInputs.Instance.interact)
                 return;
 
             if (_interactable != null)

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace femjami.Systems.Talkable
+namespace femjami.Systems.Interactable
 {
     public interface IInteractable
     {
