@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool interact;
+		public bool smell;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -51,6 +52,10 @@ namespace StarterAssets
 		{
 			InteractInput(value.isPressed);
 		}
+		public void OnSmell(InputValue value)
+		{
+			SmellInput(value.isPressed);
+		}
 #endif
 
 
@@ -77,6 +82,11 @@ namespace StarterAssets
 		public void InteractInput(bool newInteractState)
 		{
 			interact = newInteractState;
+		}
+
+		public void SmellInput(bool newSmelltState)
+		{
+			smell = newSmelltState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

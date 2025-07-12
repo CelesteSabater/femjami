@@ -920,6 +920,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1348760954}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1348760961}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!1 &1077287340
 GameObject:
@@ -1246,6 +1249,23 @@ MonoBehaviour:
   _interactableMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1348760961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348760946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd641ff776f3d72780f6375cd077f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 1746170970}
+  distanceBetweenParticles: 1.2
+  timeBetweenInstantiates: 0.5
+  smellParticles: {fileID: 314623432472017328, guid: 7813d82d2249119f987988bea00882e7, type: 3}
 --- !u!1 &1377867259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,7 +1705,7 @@ Transform:
   m_GameObject: {fileID: 1746170965}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.74, y: 0.08, z: 11.03}
+  m_LocalPosition: {x: -1.41, y: 0.08, z: 20.69}
   m_LocalScale: {x: 1.4228317, y: 0.24912, z: 0.89373}
   m_ConstrainProportionsScale: 0
   m_Children:
