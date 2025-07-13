@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using femjami.Managers;
+using System.Linq;
+using System.Collections;
+using UnityEngine.AI;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -76,6 +79,20 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        [Header("Smell Tracking")]
+        [SerializeField] private Transform[] targets;
+        [SerializeField] private GameObject smellParticles;
+        [SerializeField] private float distanceBetweenParticles = 1.0f;
+        [SerializeField] private float timeBetweenInstantiates = 1.0f;
+        [SerializeField] private float multiplierToDestroy = 10;
+        private float timeCounter = 0;
+
+        [Header("Listening Mode")]
+        [SerializeField] private Camera auxiliarCamera;
+        [SerializeField] private  GameObject FootstepRippleEffect;
+        [SerializeField] private AnimationCurve RippleEffectScaleBySpeed;
+        private bool _currentlyListening = false;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -113,7 +130,7 @@ namespace StarterAssets
         private bool _inDialogue = false;
         private void SetInDialogue(bool value)
         {
-             _inDialogue = value;
+            _inDialogue = value;
         }
 
         private bool IsCurrentDeviceMouse
@@ -174,6 +191,8 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            Smell();
+            Listen();
         }
 
         private void LateUpdate()
@@ -392,6 +411,8 @@ namespace StarterAssets
                 {
                     var index = Random.Range(0, FootstepAudioClips.Length);
                     AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                    GameObject ripple = Instantiate(FootstepRippleEffect, transform.position, transform.rotation);
+                    ripple.transform.localScale = ripple.transform.localScale * RippleEffectScaleBySpeed.Evaluate(_speed);
                 }
             }
         }
@@ -401,7 +422,82 @@ namespace StarterAssets
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                GameObject ripple = Instantiate(FootstepRippleEffect, transform.position, transform.rotation);
+                ripple.transform.localScale = ripple.transform.localScale * RippleEffectScaleBySpeed.Evaluate(_speed);
             }
+        }
+
+        private void Smell()
+        {
+            if (timeCounter > 0)
+            {
+                timeCounter -= Time.deltaTime;
+                return;
+            }
+
+            if (!StarterAssetsInputs.Instance.smell) return;
+
+            for (int i = 0; i < targets.Count(); i++)
+            {
+                if (targets[i] != null)
+                    GenerateSmeellPath(targets[i]);
+            }
+
+            timeCounter = timeBetweenInstantiates;
+        }
+
+        private void GenerateSmeellPath(Transform target)
+        {
+            NavMeshPath path = new NavMeshPath();
+            if (NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path))
+            {
+                for (int i = 0; i < path.corners.Length - 1; i++)
+                {
+                    Vector3 start = path.corners[i];
+                    Vector3 end = path.corners[i + 1];
+                    float segmentDistance = Vector3.Distance(start, end);
+                    int particlesInSegment = (int)(segmentDistance / distanceBetweenParticles);
+
+                    for (int j = 0; j < particlesInSegment; j++)
+                    {
+                        Vector3 point = Vector3.Lerp(start, end, j / (float)particlesInSegment);
+                        GameObject go = Instantiate(smellParticles, point, Quaternion.identity);
+                        go.transform.LookAt(target);
+                        StartCoroutine(Destroy(go, timeBetweenInstantiates * multiplierToDestroy));
+                    }
+                }
+            }
+        }
+
+        IEnumerator Destroy(GameObject go, float time)
+        {
+            yield return new WaitForSeconds(time);
+            Destroy(go);
+        }
+        
+        void Listen()
+        {
+            if (!StarterAssetsInputs.Instance.listen)
+            {
+                StopListenMode();
+                return;
+            }
+
+            StartListenMode();
+        }
+
+        void StartListenMode()
+        {
+            if (_currentlyListening) return;
+            _currentlyListening = true;
+            auxiliarCamera.gameObject.SetActive(true);
+        }
+
+        void StopListenMode()
+        {
+            if (!_currentlyListening) return;
+            _currentlyListening = false;
+            auxiliarCamera.gameObject.SetActive(false);
         }
     }
 }

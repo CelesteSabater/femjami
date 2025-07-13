@@ -740,6 +740,7 @@ Shader "Hidden/lilToonFurTwoPass"
             #define LIL_FEATURE_FUR_COLLISION
             #define LIL_FEATURE_BumpMap
             #define LIL_FEATURE_MetallicGlossMap
+            #define LIL_FEATURE_MatCapTex
             #define LIL_FEATURE_EmissionMap
             #define LIL_FEATURE_OutlineTex
             #define LIL_OPTIMIZE_APPLY_SHADOW_FA
@@ -1242,6 +1243,7 @@ Shader "Hidden/lilToonFurTwoPass"
             #define LIL_FEATURE_FUR_COLLISION
             #define LIL_FEATURE_BumpMap
             #define LIL_FEATURE_MetallicGlossMap
+            #define LIL_FEATURE_MatCapTex
             #define LIL_FEATURE_EmissionMap
             #define LIL_FEATURE_OutlineTex
             #define LIL_OPTIMIZE_APPLY_SHADOW_FA

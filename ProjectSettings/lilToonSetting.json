@@ -73,7 +73,7 @@
     "LIL_FEATURE_MetallicGlossMap": true,
     "LIL_FEATURE_ReflectionColorTex": false,
     "LIL_FEATURE_ReflectionCubeTex": false,
-    "LIL_FEATURE_MatCapTex": false,
+    "LIL_FEATURE_MatCapTex": true,
     "LIL_FEATURE_MatCapBlendMask": false,
     "LIL_FEATURE_MatCapBumpMap": false,
     "LIL_FEATURE_MatCap2ndTex": false,
