@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
-    <Style src="project://database/Assets/Project/Dialogue Tree/Editor/UIBuilder/DialogueNodeViewStyle.uss?fileID=7433441132597879392&amp;guid=a7a0fb599b584ba48bfcbd86627229ce&amp;type=3#DialogueNodeViewStyle" />
+    <Style src="project://database/Assets/Code/Scripts/Dialogue Tree/Editor/UIBuilder/DialogueNodeViewStyle.uss?fileID=7433441132597879392&amp;guid=a7a0fb599b584ba48bfcbd86627229ce&amp;type=3#DialogueNodeViewStyle" />
     <ui:VisualElement name="node-state" style="flex-grow: 1; min-width: 100%; min-height: 100px;" />
     <ui:VisualElement name="node-border">
         <ui:VisualElement name="contents">

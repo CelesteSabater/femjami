@@ -1,0 +1,718 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8930159220109772292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84964d9d31d439a46893e998fc0f8858, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  _guid: e48c2e1b-25e5-4ce3-aaaf-30dbe5105ca4
+  _position: {x: 980.5584, y: 601}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _children:
+  - {fileID: -2793511368478914189}
+  - {fileID: 2797640856093450046}
+--- !u!114 &-6470168666402027366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f444b4379b5a468a5dee9699724bc3, type: 3}
+  m_Name: RandomRepeat
+  m_EditorClassIdentifier: 
+  _guid: 73c78188-1a0d-48af-b81c-896a8171d8af
+  _position: {x: 980.5584, y: 469.00003}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 4-7
+  _child: {fileID: -8930159220109772292}
+  _minNumberOfRepeats: 4
+  _maxNumberOfRepeats: 7
+--- !u!114 &-5620486131348639218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84964d9d31d439a46893e998fc0f8858, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  _guid: 84b9ef81-fe40-46be-9ecf-69a699c85314
+  _position: {x: 108.909546, y: 453.55365}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _children:
+  - {fileID: -2244341875935915554}
+  - {fileID: 6073558880433569053}
+--- !u!114 &-3444467785370192016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6369f5ec45bb6e6ab7487882afb5bd, type: 3}
+  m_Name: IsPlayerInMelee
+  m_EditorClassIdentifier: 
+  _guid: 8bf2ac9d-0825-43ea-992a-2b59b1fdee56
+  _position: {x: -546.0905, y: 325.55365}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _child: {fileID: -103173771639707377}
+  test: 0
+--- !u!114 &-2819047353391112462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7cac2c482d32bf419bc18128e08bb9c, type: 3}
+  m_Name: IsPlayerVisible
+  m_EditorClassIdentifier: 
+  _guid: 168ad831-cab8-49b7-9944-134c6168f565
+  _position: {x: -546.0905, y: 600.5536}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _child: {fileID: 4039291177652417033}
+  test: 0
+--- !u!114 &-2793511368478914189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a415bd6eee6aaf8ba791d6283e823d, type: 3}
+  m_Name: LookAtRandomPosition
+  m_EditorClassIdentifier: 
+  _guid: 7b165594-16a2-4218-abd9-33f5d3d3f2b6
+  _position: {x: 902.55835, y: 752}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: Mirar sitio random
+--- !u!114 &-2410092416928297281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84964d9d31d439a46893e998fc0f8858, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  _guid: 3f8ac90e-aff4-42be-b0fc-426784917093
+  _position: {x: 830.5583, y: 326}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _children:
+  - {fileID: -1952802436871421954}
+  - {fileID: -6470168666402027366}
+--- !u!114 &-2244341875935915554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e1e1d115ad5f93a8ab65bd0c01a5d3, type: 3}
+  m_Name: GoToLastPositionPlayer
+  m_EditorClassIdentifier: 
+  _guid: b09b24c8-8233-45c2-b96d-2fde0fd028d7
+  _position: {x: -8.090546, y: 600.5536}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: "Investigar \xFAltima ubicaci\xF3n conocida o sonido"
+--- !u!114 &-2082310848405297381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5413526782d064d9a5493bb34104ef, type: 3}
+  m_Name: Root
+  m_EditorClassIdentifier: 
+  _guid: 7a83a2a6-8fd4-47bd-98be-f610b340d70d
+  _position: {x: 0, y: 0}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _repeater: 1
+  _child: {fileID: -609799943385964416}
+--- !u!114 &-1952802436871421954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c968531db53a68cb946cdf26af55119, type: 3}
+  m_Name: Patrol
+  m_EditorClassIdentifier: 
+  _guid: a6e62ead-c12b-4fbd-ab3b-594e60afea37
+  _position: {x: 681.00006, y: 468.00012}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: Patrullar
+--- !u!114 &-609799943385964416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34884b874f34d434391b9e76cce9773f, type: 3}
+  m_Name: Fallback
+  m_EditorClassIdentifier: 
+  _guid: a291da1b-18fa-4a7a-89ef-21db3a5c0b7a
+  _position: {x: 0.000030517578, y: 145.84251}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _children:
+  - {fileID: -3444467785370192016}
+  - {fileID: 2526584255601824005}
+  - {fileID: 8867086805365837679}
+  - {fileID: 2583673050430598259}
+  - {fileID: -2410092416928297281}
+--- !u!114 &-103173771639707377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d3fac23dd937f9daac808249d3e391, type: 3}
+  m_Name: IsInHighAlert
+  m_EditorClassIdentifier: 
+  _guid: c91ba484-b001-48ee-ae8a-a420519a92a7
+  _position: {x: -546.0905, y: 453.55365}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _child: {fileID: -2819047353391112462}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4805d2b75d6f09c4288344403f233af9, type: 3}
+  m_Name: PatrollingEnemy
+  m_EditorClassIdentifier: 
+  _rootNode: {fileID: -2082310848405297381}
+  _nodes:
+  - {fileID: -2082310848405297381}
+  - {fileID: 4039291177652417033}
+  - {fileID: 2526584255601824005}
+  - {fileID: 8189808323319809543}
+  - {fileID: -609799943385964416}
+  - {fileID: 5420837146223335525}
+  - {fileID: -103173771639707377}
+  - {fileID: -2819047353391112462}
+  - {fileID: -3444467785370192016}
+  - {fileID: 8867086805365837679}
+  - {fileID: 5570218518805462087}
+  - {fileID: 2583673050430598259}
+  - {fileID: -5620486131348639218}
+  - {fileID: -2244341875935915554}
+  - {fileID: 5663225682161262422}
+  - {fileID: 6073558880433569053}
+  - {fileID: 3438027797818660212}
+  - {fileID: 2664523561673465416}
+  - {fileID: -1952802436871421954}
+  - {fileID: -2410092416928297281}
+  - {fileID: -6470168666402027366}
+  - {fileID: 2797640856093450046}
+  - {fileID: -2793511368478914189}
+  - {fileID: -8930159220109772292}
+  - {fileID: 7356033401996602186}
+  - {fileID: 8300915409365854328}
+  - {fileID: 6460223845239913158}
+  _treeState: 0
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+--- !u!114 &2526584255601824005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d3fac23dd937f9daac808249d3e391, type: 3}
+  m_Name: IsInHighAlert
+  m_EditorClassIdentifier: 
+  _guid: b73eb204-f30a-413a-b074-4e2c36b0baad
+  _position: {x: -331.0904, y: 325.55365}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _child: {fileID: 8189808323319809543}
+--- !u!114 &2583673050430598259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d3fac23dd937f9daac808249d3e391, type: 3}
+  m_Name: IsInHighAlert
+  m_EditorClassIdentifier: 
+  _guid: 21597733-94ef-49e0-a8fd-86a4e70c6f71
+  _position: {x: 108.909546, y: 325.55365}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _child: {fileID: -5620486131348639218}
+--- !u!114 &2664523561673465416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b269850d329f8e74ebd90092ec45134c, type: 3}
+  m_Name: SetHighAlert
+  m_EditorClassIdentifier: 
+  _guid: a47f4a59-6576-4930-a0ca-924e3e946737
+  _position: {x: 479.9096, y: 751.5536}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: Poner NPC en estado relajado
+  state: 0
+--- !u!114 &2797640856093450046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ece4ea0a4e7b852af687f3176e1398, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  _guid: 484b28c5-ded1-41b0-820e-76f967868dda
+  _position: {x: 1099.5583, y: 752}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: Esperar 1 segundo
+  duration: 1
+--- !u!114 &3438027797818660212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a702d00ac0690dbcb8cde90dc9113e3, type: 3}
+  m_Name: InvestigateRandomPosition
+  m_EditorClassIdentifier: 
+  _guid: 3db57bfb-ff4d-4658-94f4-4589c7228963
+  _position: {x: -7.999996, y: 1047.0002}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: "Investigar ubicaci\xF3n aleatoria en un area"
+--- !u!114 &4039291177652417033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d01199d1924b7968984c85ddcd99ed7, type: 3}
+  m_Name: Attack
+  m_EditorClassIdentifier: 
+  _guid: fe4ae338-545e-4aed-be53-8a6198e7f6d2
+  _position: {x: -546.0905, y: 763.5536}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: "Animaci\xF3n de muerte y game over"
+--- !u!114 &5420837146223335525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0393e94d8a989638e33bb7bf385fa4, type: 3}
+  m_Name: ChasePlayer
+  m_EditorClassIdentifier: 
+  _guid: 8e4abf7b-db3d-4e0c-b96d-646ff599accd
+  _position: {x: -331.0904, y: 600.5536}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: Perseguir jugador
+--- !u!114 &5570218518805462087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b269850d329f8e74ebd90092ec45134c, type: 3}
+  m_Name: SetHighAlert
+  m_EditorClassIdentifier: 
+  _guid: 3f68c465-3708-4d1a-b20f-e48b0d17ec49
+  _position: {x: -116.09047, y: 453.55365}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: Poner NPC en alerta
+  state: 1
+--- !u!114 &5663225682161262422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f444b4379b5a468a5dee9699724bc3, type: 3}
+  m_Name: RandomRepeat
+  m_EditorClassIdentifier: 
+  _guid: df47dcc8-b86a-4ee0-9fde-1f4c05bc8bc6
+  _position: {x: 237.90959, y: 751.5536}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 2 - 3 repeats
+  _child: {fileID: 7356033401996602186}
+  _minNumberOfRepeats: 2
+  _maxNumberOfRepeats: 3
+--- !u!114 &6073558880433569053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84964d9d31d439a46893e998fc0f8858, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  _guid: 19a2a429-d924-4b73-bf20-74358ae4708e
+  _position: {x: 387.90955, y: 600.5536}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _children:
+  - {fileID: 5663225682161262422}
+  - {fileID: 2664523561673465416}
+--- !u!114 &6460223845239913158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ece4ea0a4e7b852af687f3176e1398, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  _guid: 0fab4f41-590a-4574-9070-67da1377b8f1
+  _position: {x: 431.00003, y: 1047.0001}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: Esperar 1 segundo
+  duration: 1
+--- !u!114 &7356033401996602186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84964d9d31d439a46893e998fc0f8858, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  _guid: 00efce45-73c6-4ba8-9e8c-d3909071e175
+  _position: {x: 238, y: 886.0001}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _children:
+  - {fileID: 3438027797818660212}
+  - {fileID: 8300915409365854328}
+  - {fileID: 6460223845239913158}
+--- !u!114 &8189808323319809543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7cac2c482d32bf419bc18128e08bb9c, type: 3}
+  m_Name: IsPlayerVisible
+  m_EditorClassIdentifier: 
+  _guid: 9becae69-551d-453e-8dfc-27a58344f442
+  _position: {x: -331.0904, y: 453.55365}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _child: {fileID: 5420837146223335525}
+  test: 0
+--- !u!114 &8300915409365854328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a415bd6eee6aaf8ba791d6283e823d, type: 3}
+  m_Name: LookAtRandomPosition
+  m_EditorClassIdentifier: 
+  _guid: acb2a872-a5ca-4403-8d1f-dc62fd6b7262
+  _position: {x: 238, y: 1047.0001}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: Mirar sitio random
+--- !u!114 &8867086805365837679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7cac2c482d32bf419bc18128e08bb9c, type: 3}
+  m_Name: IsPlayerVisible
+  m_EditorClassIdentifier: 
+  _guid: fa7acffc-d383-458f-821d-39d1a3b3829f
+  _position: {x: -116.09047, y: 325.55365}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _playerTransform: {fileID: 0}
+    _highAlert: 0
+    _investigateArea: 0
+    _npcData: {fileID: 0}
+  description: 
+  _child: {fileID: 5570218518805462087}
+  test: 0
