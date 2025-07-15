@@ -18,6 +18,8 @@ namespace Project.BehaviourTree.Runtime
 
         protected override State OnUpdate()
         {
+            if (_blackboard._npcData) _blackboard._npcData.ClearGoToPosition();
+            
             startTime += Time.deltaTime;
             if (startTime > duration) return State.Success;
             return State.Running;

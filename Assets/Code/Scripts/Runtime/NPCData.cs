@@ -11,13 +11,16 @@ namespace femjami.runtime
         [Header("Patrol data")]
         [SerializeField] private Transform[] _patrolPoints;
         [SerializeField] private int _currentObjectivePoint = 0;
-        private NavMeshAgent _agent;
-        private Animator _animator;
         [SerializeField] private float _meleeDistance = 1f;
         [SerializeField] private float _investigateArea = 5f;
         [SerializeField] private float _walkSpeed = 2f, _runSpeed = 7f;
-        
+        private NavMeshAgent _agent;
+        private Animator _animator;
+        private bool _highAlert = false;
 
+        public bool GetHighAlert() => _highAlert;
+        public void SetHighAlert(bool b) => _highAlert = b;
+        
         private void Start()
         {
             if (!_agent) _agent = GetComponent<NavMeshAgent>();
@@ -71,24 +74,31 @@ namespace femjami.runtime
 
         public bool LookAtPosition(float direction)
         {
-            direction = Math.Clamp(direction, 0, 360);
-            var dir = (new Vector3(transform.position.x, direction, transform.position.z) - transform.position).normalized;
-            var animDir = transform.InverseTransformDirection(dir);
+            direction = Mathf.Repeat(direction, 360f);
 
-            transform.rotation = UnityEngine.Quaternion.RotateTowards(transform.rotation, UnityEngine.Quaternion.LookRotation(dir), 180 * Time.deltaTime);
+            Vector3 targetDirection = Quaternion.Euler(0, direction, 0) * Vector3.forward;
+
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation, 
+                targetRotation, 
+                180 * Time.deltaTime
+            );
 
             if (_animator)
             {
-                _animator.SetFloat("Horizontal", 0, .5f, Time.deltaTime);
-                _animator.SetFloat("Vertical", 0, .5f, Time.deltaTime);
-            }
+                _animator.SetFloat("Horizontal", 0.5f, 0.25f, Time.deltaTime);
+                _animator.SetFloat("Vertical", 0, 0.25f, Time.deltaTime);
+            }   
+            
+            float angleDifference = Quaternion.Angle(transform.rotation, targetRotation);
+            if (angleDifference < 1f)
+                _animator.SetFloat("Horizontal", 0, 0.5f, Time.deltaTime);
 
-            if (dir == Vector3.zero)
-                return true;
-            return false;
+            return angleDifference < 1f;
         }
 
-        private void ClearGoToPosition()
+        public void ClearGoToPosition()
         {
             if (!_agent) return;
             _agent.ResetPath();

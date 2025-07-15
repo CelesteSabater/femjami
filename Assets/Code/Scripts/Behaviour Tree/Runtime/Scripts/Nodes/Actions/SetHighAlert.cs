@@ -13,7 +13,9 @@ namespace Project.BehaviourTree.Runtime
 
         protected override State OnUpdate()
         {
-            _blackboard._highAlert = true;
+            if (_blackboard._npcData == null) return State.Failure;
+
+            _blackboard._npcData.SetHighAlert(state);
             return State.Success;
         }
     }

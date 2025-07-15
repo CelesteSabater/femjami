@@ -195,11 +195,6 @@ namespace Project.BehaviourTree.Runtime
 
         public void Bind()
         {   
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            
-            if (player != null)
-                _blackboard._playerTransform = player.GetComponent<Transform>();
-
             Traverse(_rootNode, (n) =>
             { 
                 n._blackboard = _blackboard;
@@ -208,11 +203,8 @@ namespace Project.BehaviourTree.Runtime
 
         public void Bind(GameObject go)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
             NPCData npcData = go.GetComponent<NPCData>();
 
-            if (player != null)
-                _blackboard._playerTransform = player.GetComponent<Transform>();
             if (npcData != null)
                 _blackboard._npcData = npcData;
 
