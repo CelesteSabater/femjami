@@ -204,9 +204,10 @@ namespace Project.BehaviourTree.Runtime
         public void Bind(GameObject go)
         {
             NPCData npcData = go.GetComponent<NPCData>();
+            FieldOfView fieldOfView = go.GetComponent<FieldOfView>();
 
-            if (npcData != null)
-                _blackboard._npcData = npcData;
+            if (npcData) _blackboard._npcData = npcData;
+            if (fieldOfView) _blackboard._fieldOfView = fieldOfView;
 
             _blackboard._gameObject = go;
             Traverse(_rootNode, (n) =>

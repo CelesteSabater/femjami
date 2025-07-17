@@ -14,21 +14,9 @@ namespace femjami.Managers
         public void SetDialogue(bool value) => onSetDialogue?.Invoke(value);
         #endregion
 
-        #region SONGS
-        public event Action<TextAsset> onStartSong;
-        public void StartSong(TextAsset song) => onStartSong?.Invoke(song);
-        public event Action onSongFinished;
-        public void SongFinished() => onSongFinished?.Invoke();
-        #endregion
-
-        #region COMBOS
-        public event Action onLowCombo;
-        public void LowCombo() => onLowCombo?.Invoke();
-        public event Action onMidCombo;
-        public void MidCombo() => onMidCombo?.Invoke();
-        
-        public event Action onHighCombo;
-        public void HighCombo() => onHighCombo?.Invoke();
+        #region STEALTH
+        public event Action<Vector3, float> onMakeSound;
+        public void MakeSound(Vector3 soundOrigin, float maxDistance) => onMakeSound?.Invoke(soundOrigin, maxDistance);
         #endregion
     }
 }

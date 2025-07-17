@@ -2,7 +2,10 @@ namespace Project.BehaviourTree.Runtime
 {
     public class IsPlayerVisible : ConditionalNode
     {
-        public bool test;
-        protected override bool Question() => test;
+        protected override bool Question()
+        {
+            if (!_blackboard._fieldOfView) return false;
+            return _blackboard._fieldOfView.canSeePlayer;
+        }
     }
 }

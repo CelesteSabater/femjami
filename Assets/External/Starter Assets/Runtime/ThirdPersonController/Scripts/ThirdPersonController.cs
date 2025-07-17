@@ -90,7 +90,7 @@ namespace StarterAssets
         [Header("Listening Mode")]
         [SerializeField] private Camera auxiliarCamera;
         [SerializeField] private  GameObject FootstepRippleEffect;
-        [SerializeField] private AnimationCurve RippleEffectScaleBySpeed;
+        [SerializeField] private AnimationCurve SoundEffectsBySpeed;
         private bool _currentlyListening = false;
 
         // cinemachine
@@ -412,7 +412,9 @@ namespace StarterAssets
                     var index = Random.Range(0, FootstepAudioClips.Length);
                     AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
                     GameObject ripple = Instantiate(FootstepRippleEffect, transform.position, transform.rotation);
-                    ripple.transform.localScale = ripple.transform.localScale * RippleEffectScaleBySpeed.Evaluate(_speed);
+                    float scale = SoundEffectsBySpeed.Evaluate(_speed);
+                    ripple.transform.localScale = ripple.transform.localScale * scale;
+                    GameEvents.current.MakeSound(transform.position, scale);
                 }
             }
         }
@@ -423,7 +425,8 @@ namespace StarterAssets
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 GameObject ripple = Instantiate(FootstepRippleEffect, transform.position, transform.rotation);
-                ripple.transform.localScale = ripple.transform.localScale * RippleEffectScaleBySpeed.Evaluate(_speed);
+                ripple.transform.localScale = ripple.transform.localScale * 30;
+                GameEvents.current.MakeSound(transform.position, 30);
             }
         }
 

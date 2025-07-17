@@ -13,15 +13,13 @@ MonoBehaviour:
   m_Name: Sequencer
   m_EditorClassIdentifier: 
   _guid: e48c2e1b-25e5-4ce3-aaaf-30dbe5105ca4
-  _position: {x: 980.5584, y: 601}
+  _position: {x: 869.06354, y: 601}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _children:
   - {fileID: 2797640856093450046}
@@ -45,10 +43,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: Esperar 1 segundos
   duration: 1
 --- !u!114 &-6470168666402027366
@@ -64,15 +60,13 @@ MonoBehaviour:
   m_Name: RandomRepeat
   m_EditorClassIdentifier: 
   _guid: 73c78188-1a0d-48af-b81c-896a8171d8af
-  _position: {x: 980.5584, y: 469.00003}
+  _position: {x: 869.06354, y: 469.00003}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 2-4
   _child: {fileID: -8930159220109772292}
   _minNumberOfRepeats: 2
@@ -95,10 +89,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _children:
   - {fileID: -2244341875935915554}
@@ -116,42 +108,15 @@ MonoBehaviour:
   m_Name: IsPlayerInMelee
   m_EditorClassIdentifier: 
   _guid: 8bf2ac9d-0825-43ea-992a-2b59b1fdee56
-  _position: {x: -546.0905, y: 325.55365}
+  _position: {x: -540, y: 326}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _child: {fileID: -103173771639707377}
-  test: 0
---- !u!114 &-2819047353391112462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7cac2c482d32bf419bc18128e08bb9c, type: 3}
-  m_Name: IsPlayerVisible
-  m_EditorClassIdentifier: 
-  _guid: 168ad831-cab8-49b7-9944-134c6168f565
-  _position: {x: -546.0905, y: 600.5536}
-  _blackboard:
-    _gameObject: {fileID: 0}
-    _nextPatrolPoint: {x: 0, y: 0, z: 0}
-    _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
-    _npcData: {fileID: 0}
-  description: 
-  _child: {fileID: 4039291177652417033}
   test: 0
 --- !u!114 &-2793511368478914189
 MonoBehaviour:
@@ -166,15 +131,13 @@ MonoBehaviour:
   m_Name: LookAtRandomPosition
   m_EditorClassIdentifier: 
   _guid: 7b165594-16a2-4218-abd9-33f5d3d3f2b6
-  _position: {x: 981.0001, y: 752.0001}
+  _position: {x: 869.06354, y: 752}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: Mirar sitio random
 --- !u!114 &-2410092416928297281
 MonoBehaviour:
@@ -189,15 +152,13 @@ MonoBehaviour:
   m_Name: Sequencer
   m_EditorClassIdentifier: 
   _guid: 3f8ac90e-aff4-42be-b0fc-426784917093
-  _position: {x: 830.5583, y: 326}
+  _position: {x: 719.0636, y: 326.00003}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _children:
   - {fileID: -1952802436871421954}
@@ -220,10 +181,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: "Investigar \xFAltima ubicaci\xF3n conocida o sonido"
 --- !u!114 &-2082310848405297381
 MonoBehaviour:
@@ -243,10 +202,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _repeater: 1
   _child: {fileID: -609799943385964416}
@@ -263,15 +220,13 @@ MonoBehaviour:
   m_Name: Patrol
   m_EditorClassIdentifier: 
   _guid: a6e62ead-c12b-4fbd-ab3b-594e60afea37
-  _position: {x: 681.00006, y: 468.00012}
+  _position: {x: 569.0636, y: 468.00003}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: Patrullar
 --- !u!114 &-609799943385964416
 MonoBehaviour:
@@ -291,10 +246,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _children:
   - {fileID: -3444467785370192016}
@@ -315,17 +268,15 @@ MonoBehaviour:
   m_Name: IsInHighAlert
   m_EditorClassIdentifier: 
   _guid: c91ba484-b001-48ee-ae8a-a420519a92a7
-  _position: {x: -546.0905, y: 453.55365}
+  _position: {x: -546.0001, y: 454.00003}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
-  _child: {fileID: -2819047353391112462}
+  _child: {fileID: 4039291177652417033}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +298,6 @@ MonoBehaviour:
   - {fileID: -609799943385964416}
   - {fileID: 5420837146223335525}
   - {fileID: -103173771639707377}
-  - {fileID: -2819047353391112462}
   - {fileID: -3444467785370192016}
   - {fileID: 8867086805365837679}
   - {fileID: 5570218518805462087}
@@ -374,10 +324,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
 --- !u!114 &706739249972382924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,15 +339,13 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   _guid: 1964b424-e039-4aff-bb05-5395349941e7
-  _position: {x: 1137, y: 752.0001}
+  _position: {x: 1025.0637, y: 752}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: Esperar 1 segundos
   duration: 1
 --- !u!114 &2526584255601824005
@@ -420,10 +366,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _child: {fileID: 8189808323319809543}
 --- !u!114 &2583673050430598259
@@ -444,10 +388,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _child: {fileID: -5620486131348639218}
 --- !u!114 &2664523561673465416
@@ -468,10 +410,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: Poner NPC en estado relajado
   state: 0
 --- !u!114 &2797640856093450046
@@ -487,15 +427,13 @@ MonoBehaviour:
   m_Name: Wait
   m_EditorClassIdentifier: 
   _guid: 484b28c5-ded1-41b0-820e-76f967868dda
-  _position: {x: 831.0001, y: 752.0001}
+  _position: {x: 719.0636, y: 752}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: Esperar 1 segundos
   duration: 1
 --- !u!114 &3438027797818660212
@@ -516,10 +454,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: "Investigar ubicaci\xF3n aleatoria en un area"
 --- !u!114 &4039291177652417033
 MonoBehaviour:
@@ -534,15 +470,13 @@ MonoBehaviour:
   m_Name: Attack
   m_EditorClassIdentifier: 
   _guid: fe4ae338-545e-4aed-be53-8a6198e7f6d2
-  _position: {x: -546.0905, y: 763.5536}
+  _position: {x: -540, y: 601}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: "Animaci\xF3n de muerte y game over"
 --- !u!114 &5420837146223335525
 MonoBehaviour:
@@ -562,10 +496,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: Perseguir jugador
 --- !u!114 &5570218518805462087
 MonoBehaviour:
@@ -585,10 +517,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: Poner NPC en alerta
   state: 1
 --- !u!114 &5663225682161262422
@@ -609,10 +539,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 1 - 3 repeats
   _child: {fileID: 7356033401996602186}
   _minNumberOfRepeats: 1
@@ -635,10 +563,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _children:
   - {fileID: 5663225682161262422}
@@ -661,10 +587,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: Esperar 1 segundos
   duration: 1
 --- !u!114 &7356033401996602186
@@ -685,10 +609,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _children:
   - {fileID: 3438027797818660212}
@@ -713,13 +635,10 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _child: {fileID: 5420837146223335525}
-  test: 0
 --- !u!114 &8300915409365854328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,10 +657,8 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: Mirar sitio random
 --- !u!114 &8867086805365837679
 MonoBehaviour:
@@ -761,10 +678,7 @@ MonoBehaviour:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
     _lastPlayerPosition: {x: 0, y: 0, z: 0}
-    _playerTransform: {fileID: 0}
-    _highAlert: 0
-    _investigateArea: 0
     _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
   description: 
   _child: {fileID: 5570218518805462087}
-  test: 0

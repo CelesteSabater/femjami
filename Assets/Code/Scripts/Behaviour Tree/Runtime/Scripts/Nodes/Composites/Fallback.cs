@@ -18,6 +18,22 @@ namespace Project.BehaviourTree.Runtime
 
         protected override State OnUpdate()
         {
+            for (int i = 0; i <= _current && i < _children.Count; i++)
+            {
+                Node prevChild = _children[i];
+                switch (prevChild.Update())
+                {
+                    case State.Running:
+                        _children[_current].RestartNode();
+                        _current = i;
+                        return State.Running;
+                    case State.Success:
+                        _children[_current].RestartNode();
+                        _current = i;
+                        return State.Success;
+                }
+            }
+
             Node child = _children[_current];
             switch (child.Update())
             {

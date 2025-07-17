@@ -6,6 +6,9 @@ namespace Project.BehaviourTree.Runtime
 {
     public abstract class ActionNode : Node
     {
-
+        public override void RestartNode()
+        {
+            base.RestartNode();
+        }
     }
 }
