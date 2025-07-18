@@ -3,12 +3,10 @@ using femjami.Managers;
 using System.Linq;
 using System.Collections;
 using UnityEngine.AI;
+using TMPro;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
-
-/* Note: animations are called via the controller for both the character and capsule using animator null checks
- */
 
 namespace StarterAssets
 {
@@ -95,6 +93,36 @@ namespace StarterAssets
         [SerializeField] private  GameObject FootstepRippleEffect;
         [SerializeField] private AnimationCurve SoundEffectsBySpeed;
         private bool _currentlyListening = false;
+
+        [Header("Ability Cooldowns")]
+        [Tooltip("Cooldown time for smell ability in seconds")]
+        public float smellCooldown = 10f;
+        [Tooltip("Duration for smell ability in seconds")]
+        public float smellDuration = 5f;
+        [Tooltip("Cooldown time for listen ability in seconds")]
+        public float listenCooldown = 8f;
+        [Tooltip("Duration for listen ability in seconds")]
+        public float listenDuration = 4f;
+
+        [Header("UI References")]
+        [Tooltip("Slider for smell cooldown")]
+        public UnityEngine.UI.Slider smellCooldownSlider;
+        [Tooltip("Slider for listen cooldown")]
+        public UnityEngine.UI.Slider listenCooldownSlider;
+        [Tooltip("Slider for sneak state")]
+        public UnityEngine.UI.Slider sneakSlider;
+        [Tooltip("Text for smell cooldown")]
+        public TextMeshProUGUI smellCooldownText;
+        [Tooltip("Text for listen cooldown")]
+        public TextMeshProUGUI listenCooldownText;
+
+        // Variables para cooldowns
+        private float currentSmellCooldown = 0f;
+        private float currentListenCooldown = 0f;
+        private float smellActiveTime = 0f;
+        private float listenActiveTime = 0f;
+        private bool isSmellActive = false;
+        private bool isListenActive = false;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -201,8 +229,12 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
-            Smell();
-            Listen();
+
+            UpdateCooldowns();
+            UpdateUI();
+
+            UpdateSmell();
+            UpdateListen();
         }
 
         private void LateUpdate()
@@ -452,15 +484,56 @@ namespace StarterAssets
             }
         }
 
-        private void Smell()
+        private void UpdateCooldowns()
         {
+            if (currentSmellCooldown > 0)
+            {
+                currentSmellCooldown -= Time.deltaTime;
+            }
+
+            if (isSmellActive)
+            {
+                smellActiveTime -= Time.deltaTime;
+                if (smellActiveTime <= 0)
+                {
+                    isSmellActive = false;
+                    currentSmellCooldown = smellCooldown;
+                }
+            }
+
+            if (currentListenCooldown > 0)
+            {
+                currentListenCooldown -= Time.deltaTime;
+            }
+
+            if (isListenActive)
+            {
+                listenActiveTime -= Time.deltaTime;
+                if (listenActiveTime <= 0)
+                {
+                    StopListenMode();
+                    isListenActive = false;
+                    currentListenCooldown = listenCooldown;
+                }
+            }
+        }
+
+        private void UpdateSmell()
+        {
+            if (StarterAssetsInputs.Instance.smell && currentSmellCooldown <= 0 && !isSmellActive)
+            {
+                isSmellActive = true;
+                smellActiveTime = smellDuration;
+            }
+
+            if (!isSmellActive)
+                return;
+                
             if (timeCounter > 0)
             {
                 timeCounter -= Time.deltaTime;
                 return;
             }
-
-            if (!StarterAssetsInputs.Instance.smell) return;
 
             for (int i = 0; i < targets.Count(); i++)
             {
@@ -469,6 +542,57 @@ namespace StarterAssets
             }
 
             timeCounter = timeBetweenInstantiates;
+        }
+
+        private void UpdateListen()
+        {
+            if (StarterAssetsInputs.Instance.listen && currentListenCooldown <= 0 && !isListenActive)
+            {
+                isListenActive = true;
+                listenActiveTime = listenDuration;
+                StartListenMode();
+            }
+            else if (!isListenActive)
+            {
+                StopListenMode();
+            }
+        }
+
+        private void UpdateUI()
+        {
+            if (isSmellActive)
+            {
+                smellCooldownSlider.value = 1 - (smellActiveTime / smellDuration);
+                smellCooldownText.text = Mathf.Ceil(smellActiveTime).ToString();
+            }
+            else if (currentSmellCooldown > 0)
+            {
+                smellCooldownSlider.value = currentSmellCooldown / smellCooldown;
+                smellCooldownText.text = Mathf.Ceil(currentSmellCooldown).ToString();
+            }
+            else
+            {
+                smellCooldownSlider.value = 0;
+                smellCooldownText.text = "";
+            }
+
+            if (isListenActive)
+            {
+                listenCooldownSlider.value = 1 - (listenActiveTime / listenDuration);
+                listenCooldownText.text = Mathf.Ceil(listenActiveTime).ToString();
+            }
+            else if (currentListenCooldown > 0)
+            {
+                listenCooldownSlider.value = currentListenCooldown / listenCooldown;
+                listenCooldownText.text = Mathf.Ceil(currentListenCooldown).ToString();
+            }
+            else
+            {
+                listenCooldownSlider.value = 0;
+                listenCooldownText.text = "";
+            }
+
+            sneakSlider.value = _input.sneak ? 0 : 1;
         }
 
         private void GenerateSmeellPath(Transform target)
@@ -498,17 +622,6 @@ namespace StarterAssets
         {
             yield return new WaitForSeconds(time);
             Destroy(go);
-        }
-        
-        void Listen()
-        {
-            if (!StarterAssetsInputs.Instance.listen)
-            {
-                StopListenMode();
-                return;
-            }
-
-            StartListenMode();
         }
 
         void StartListenMode()

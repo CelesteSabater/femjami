@@ -11,7 +11,7 @@ public class SceneTransition : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private float _fadeDuration = 2f;
     [SerializeField] private float _soundDelay = 1.1f;
-    [SerializeField] private string _targetScene = "Menu";
+    [SerializeField] private string _targetScene = "GameLost";
 
     private CanvasGroup _canvasGroup;
     private float _currentFadeTime;
