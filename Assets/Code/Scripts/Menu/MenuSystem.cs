@@ -1,62 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using femjami.Utils.Singleton;
+using StarterAssets;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-public class MenuSystem : MonoBehaviour
+using femjami.Managers;
+
+public class MenuSystem : Singleton<MenuSystem>
 {
-    // public GameObject playButton;
-    public GameObject nivelesPanel;
-    public GameObject optionsPanel;
-    public GameObject confirmarPanel;
+    [SerializeField] private GameObject _pauseMenuUI;
+    private bool _pause;
+    public bool GetIsPaused() => _pause;
+    public bool SetPause(bool b) => _pause = b;
+    private bool _gameOver = false;
 
-    public Animator animator1;
-    public Animator animator2;
-
-    public void Jugar()
+    private void Start()
     {
-        StartCoroutine(PlayAfterDelay(1f));
+        GameEvents.current.onLoseGame += GameOver;
     }
 
-    public void Opciones()
+    private void OnDestroy()
     {
-        optionsPanel.SetActive(!optionsPanel.activeSelf);
-
+        if (GameEvents.current != null)
+        {
+            GameEvents.current.onLoseGame -= GameOver;
+        }
     }
 
-    private IEnumerator PlayAfterDelay(float delay)
+    private void GameOver() => _gameOver = true;
+    public void Update()
     {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (_gameOver) return;
+        PauseGame();
     }
 
-    public void Confirmar(GameObject panel)
+    private void PauseGame()
     {
-        panel.SetActive(false);
-        confirmarPanel.SetActive(!confirmarPanel.activeSelf);
+        _pauseMenuUI.SetActive(StarterAssetsInputs.Instance.pause);
+        Time.timeScale = StarterAssetsInputs.Instance.pause ? 0 : 1;
+        SetPause(StarterAssetsInputs.Instance.pause);
     }
 
-    public void Volver(GameObject panel)
+    public void ResumeGame()
     {
-        panel.SetActive(false);
+        StarterAssetsInputs.Instance.pause = false;
+        _pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        SetPause(false);
     }
 
-    public void VolverMenu(GameObject panel)
+    public void LoadMenu()
     {
-        animator1.SetBool("Abrir", false);
-        animator2.SetBool("Abrir", false);
-        panel.SetActive(false);
+        SceneManager.LoadScene("Menu");
     }
 
-    public void ActivarPanel(GameObject panel)
+    public void Quit()
     {
-        panel.SetActive(true);
-    }
-
-    public void Salir()
-    {
-        Debug.Log("Saliendo del juego...");
         Application.Quit();
     }
 }

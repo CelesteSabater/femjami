@@ -47,6 +47,30 @@ MonoBehaviour:
     _fieldOfView: {fileID: 0}
   description: Esperar 1 segundos
   duration: 1
+--- !u!114 &-8273900596392995987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84964d9d31d439a46893e998fc0f8858, type: 3}
+  m_Name: Sequencer
+  m_EditorClassIdentifier: 
+  _guid: 093b9552-3fbc-4f07-8123-321267707c23
+  _position: {x: -331, y: 618}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
+  description: 
+  _children:
+  - {fileID: -2098037700224960338}
+  - {fileID: 5420837146223335525}
 --- !u!114 &-6470168666402027366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,8 +117,31 @@ MonoBehaviour:
     _fieldOfView: {fileID: 0}
   description: 
   _children:
+  - {fileID: -4925070022681061478}
   - {fileID: -2244341875935915554}
   - {fileID: 6073558880433569053}
+--- !u!114 &-4925070022681061478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ece4ea0a4e7b852af687f3176e1398, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  _guid: bb8df8ac-a34b-4afe-acaf-907b85db8b86
+  _position: {x: -130, y: 618}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
+  description: Tiempo de respuesta
+  duration: 0.3
 --- !u!114 &-3444467785370192016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +223,7 @@ MonoBehaviour:
   m_Name: GoToLastPositionPlayer
   m_EditorClassIdentifier: 
   _guid: b09b24c8-8233-45c2-b96d-2fde0fd028d7
-  _position: {x: -8.090546, y: 600.5536}
+  _position: {x: 50, y: 618}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
@@ -184,6 +231,28 @@ MonoBehaviour:
     _npcData: {fileID: 0}
     _fieldOfView: {fileID: 0}
   description: "Investigar \xFAltima ubicaci\xF3n conocida o sonido"
+--- !u!114 &-2098037700224960338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ece4ea0a4e7b852af687f3176e1398, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  _guid: 26d87086-2cbd-465d-9d00-15b7e62f4807
+  _position: {x: -434, y: 801}
+  _blackboard:
+    _gameObject: {fileID: 0}
+    _nextPatrolPoint: {x: 0, y: 0, z: 0}
+    _lastPlayerPosition: {x: 0, y: 0, z: 0}
+    _npcData: {fileID: 0}
+    _fieldOfView: {fileID: 0}
+  description: Tiempo de respuesta
+  duration: 0.3
 --- !u!114 &-2082310848405297381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +388,9 @@ MonoBehaviour:
   - {fileID: 6460223845239913158}
   - {fileID: 706739249972382924}
   - {fileID: -8326081747932678317}
+  - {fileID: -4925070022681061478}
+  - {fileID: -8273900596392995987}
+  - {fileID: -2098037700224960338}
   _treeState: 0
   _blackboard:
     _gameObject: {fileID: 0}
@@ -470,7 +542,7 @@ MonoBehaviour:
   m_Name: Attack
   m_EditorClassIdentifier: 
   _guid: fe4ae338-545e-4aed-be53-8a6198e7f6d2
-  _position: {x: -540, y: 601}
+  _position: {x: -552, y: 601}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
@@ -491,7 +563,7 @@ MonoBehaviour:
   m_Name: ChasePlayer
   m_EditorClassIdentifier: 
   _guid: 8e4abf7b-db3d-4e0c-b96d-646ff599accd
-  _position: {x: -331.0904, y: 600.5536}
+  _position: {x: -240, y: 801}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
@@ -638,7 +710,7 @@ MonoBehaviour:
     _npcData: {fileID: 0}
     _fieldOfView: {fileID: 0}
   description: 
-  _child: {fileID: 5420837146223335525}
+  _child: {fileID: -8273900596392995987}
 --- !u!114 &8300915409365854328
 MonoBehaviour:
   m_ObjectHideFlags: 0

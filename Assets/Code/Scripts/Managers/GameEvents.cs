@@ -18,5 +18,10 @@ namespace femjami.Managers
         public event Action<Vector3, float> onMakeSound;
         public void MakeSound(Vector3 soundOrigin, float maxDistance) => onMakeSound?.Invoke(soundOrigin, maxDistance);
         #endregion
+
+        #region GAME
+        public event Action onLoseGame;
+        public void LoseGame() => onLoseGame?.Invoke();
+        #endregion
     }
 }

@@ -19,6 +19,10 @@ namespace StarterAssets
     public class ThirdPersonController : MonoBehaviour
     {
         [Header("Player")]
+
+        [Tooltip("Sneak speed of the character in m/s")]
+        public float SneakSpeed = 1.0f;
+
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
 
@@ -34,7 +38,6 @@ namespace StarterAssets
 
         public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
-        [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -115,6 +118,7 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        private int _animIDSneak;
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
@@ -132,6 +136,10 @@ namespace StarterAssets
         {
             _inDialogue = value;
         }
+
+        private bool _gameOver = false;
+
+        private void GameOver() => _gameOver = true;
 
         private bool IsCurrentDeviceMouse
         {
@@ -174,19 +182,21 @@ namespace StarterAssets
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
             GameEvents.current.onSetDialogue += SetInDialogue;
+            GameEvents.current.onLoseGame += GameOver;
         }
 
         private void OnDestroy()
         {
             GameEvents.current.onSetDialogue -= SetInDialogue;
+            GameEvents.current.onLoseGame -= GameOver;
         }
 
         private void Update()
         {
-            _hasAnimator = TryGetComponent(out _animator);
-
-            if (_inDialogue)
+            if (_inDialogue || _gameOver || MenuSystem.Instance.GetIsPaused())
                 return;
+
+            _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
             GroundedCheck();
@@ -197,6 +207,16 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
+            if (_inDialogue || _gameOver || MenuSystem.Instance.GetIsPaused())
+            {
+                Cursor.lockState = CursorLockMode.None;
+                _input.cursorLocked = false;
+                return;
+            }
+
+            Cursor.lockState = CursorLockMode.Locked;
+            _input.cursorLocked = true;
+
             CameraRotation();
         }
 
@@ -207,6 +227,7 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+            _animIDSneak = Animator.StringToHash("Sneak");
         }
 
         private void GroundedCheck()
@@ -249,7 +270,7 @@ namespace StarterAssets
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
-
+            if (_input.sneak) targetSpeed = SneakSpeed;
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
             // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
@@ -310,6 +331,7 @@ namespace StarterAssets
             {
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+                _animator.SetBool(_animIDSneak, _input.sneak);
             }
         }
 
@@ -410,7 +432,7 @@ namespace StarterAssets
                 if (FootstepAudioClips.Length > 0)
                 {
                     var index = Random.Range(0, FootstepAudioClips.Length);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), _speed / SprintSpeed);
                     GameObject ripple = Instantiate(FootstepRippleEffect, transform.position, transform.rotation);
                     float scale = SoundEffectsBySpeed.Evaluate(_speed);
                     ripple.transform.localScale = ripple.transform.localScale * scale;
@@ -423,7 +445,7 @@ namespace StarterAssets
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), _speed / SprintSpeed);
                 GameObject ripple = Instantiate(FootstepRippleEffect, transform.position, transform.rotation);
                 ripple.transform.localScale = ripple.transform.localScale * 30;
                 GameEvents.current.MakeSound(transform.position, 30);

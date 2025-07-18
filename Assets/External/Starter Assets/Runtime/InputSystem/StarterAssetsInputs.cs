@@ -17,6 +17,8 @@ namespace StarterAssets
 		public bool interact;
 		public bool smell;
 		public bool listen;
+		public bool sneak;
+		public bool pause;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -62,6 +64,18 @@ namespace StarterAssets
 		{
 			ListenInput(value.isPressed);
 		}
+
+		public void OnSneak(InputValue value)
+		{
+			if (value.isPressed)
+				SneakInput(!sneak);
+		}
+		
+		public void OnPause(InputValue value)
+		{
+			if (value.isPressed)
+				PauseInput(!pause);
+		}
 #endif
 
 
@@ -98,6 +112,16 @@ namespace StarterAssets
 		public void ListenInput(bool newListenState)
 		{
 			listen = newListenState;
+		}
+
+		public void SneakInput(bool newSneakState)
+		{
+			sneak = newSneakState;
+		}
+
+		public void PauseInput(bool newPauseState)
+		{
+			pause = newPauseState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

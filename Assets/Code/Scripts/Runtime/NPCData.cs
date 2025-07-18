@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using femjami.Managers;
 using femjami.Systems.AudioSystem;
 using Project.BehaviourTree.Runtime;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -37,6 +38,9 @@ namespace femjami.runtime
         private GameObject _alertGO;
         [SerializeField] private Transform _alertLocation;
         [SerializeField] private string _alertSound;
+        public AudioClip[] FootstepAudioClips;
+        [SerializeField] private  GameObject FootstepRippleEffect;
+        [SerializeField] private AnimationCurve SoundEffectsBySpeed;
 
         private void Start()
         {
@@ -182,6 +186,21 @@ namespace femjami.runtime
 
             BehaviourTree behaviourTree = GetComponent<BehaviourTreeRunner>().GetTree();
             behaviourTree._blackboard._lastPlayerPosition = soundOrigin;
+        }
+
+        private void OnFootstep(AnimationEvent animationEvent)
+        {
+            if (animationEvent.animatorClipInfo.weight > 0.5f)
+            {
+                if (FootstepAudioClips.Length > 0)
+                {
+                    var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
+                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, _agent.speed / _runSpeed);
+                    GameObject ripple = Instantiate(FootstepRippleEffect, transform.position, transform.rotation);
+                    float scale = SoundEffectsBySpeed.Evaluate(_agent.speed);
+                    ripple.transform.localScale = ripple.transform.localScale * scale;
+                }
+            }
         }
 
         private void OnDrawGizmos()
