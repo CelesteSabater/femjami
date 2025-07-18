@@ -38,8 +38,8 @@ namespace femjami.Systems.AudioSystem
             return _currentMusic._name;
         }
 
-        public float GetMusicVolume() => _musicVolume;
-        public float GetSFXVolume() => _sfxVolume;
+        public float GetMusicVolume() => AudioData._musicVolume;
+        public float GetSFXVolume() => AudioData._sfxVolume;
 
         private void Update()
         {
@@ -90,7 +90,7 @@ namespace femjami.Systems.AudioSystem
             if (_currentMusic._loop) _previousMusic = _currentMusic;
 
             _musicSource.clip = music._clip;
-            _musicSource.volume = music._volume * _musicVolume;
+            _musicSource.volume = music._volume * AudioData._musicVolume;
             _musicSource.loop = music._loop;
             _musicSource.Play();
         }
@@ -109,7 +109,7 @@ namespace femjami.Systems.AudioSystem
                 return;
             }
 
-            _sfxSource.volume = sfx._volume * _sfxVolume;
+            _sfxSource.volume = sfx._volume * AudioData._sfxVolume;
             _sfxSource.clip = sfx._clip;
 
             _sfxSource.pitch = 1;
@@ -129,20 +129,20 @@ namespace femjami.Systems.AudioSystem
                 return;
             }
 
-            PlayClipAt(sfx._clip, location, sfx._volume * _sfxVolume, randomPitch);
+            PlayClipAt(sfx._clip, location, sfx._volume * AudioData._sfxVolume, randomPitch);
         }
 
         public void ToggleMusic() => _musicSource.mute = !_musicSource.mute;
         public void ToggleSFX() => _sfxSource.mute = !_sfxSource.mute;
         public void MusicVolume(float volume)
         {
-            _musicVolume = volume;
-            _musicSource.volume = _musicVolume * _currentMusic._volume;
+            AudioData._musicVolume = volume;
+            _musicSource.volume = AudioData._musicVolume * _currentMusic._volume;
         }
         public void SFXVolume(float volume)
         {
-            _sfxVolume = volume;
-            _sfxSource.volume = _sfxVolume;
+            AudioData._sfxVolume = volume;
+            _sfxSource.volume = AudioData._sfxVolume;
         }
 
         private void CheckIsPlaying()
