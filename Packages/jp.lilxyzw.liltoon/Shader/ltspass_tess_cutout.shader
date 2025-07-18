@@ -722,6 +722,7 @@ Shader "Hidden/ltspass_tess_cutout"
             #define LIL_FEATURE_MatCapTex
             #define LIL_FEATURE_EmissionMap
             #define LIL_FEATURE_OutlineTex
+            #define LIL_FEATURE_FurNoiseMask
             #define LIL_OPTIMIZE_APPLY_SHADOW_FA
             #define LIL_OPTIMIZE_USE_FORWARDADD
             #define LIL_OPTIMIZE_USE_VERTEXLIGHT
@@ -1163,6 +1164,7 @@ Shader "Hidden/ltspass_tess_cutout"
             #define LIL_FEATURE_MatCapTex
             #define LIL_FEATURE_EmissionMap
             #define LIL_FEATURE_OutlineTex
+            #define LIL_FEATURE_FurNoiseMask
             #define LIL_OPTIMIZE_APPLY_SHADOW_FA
             #define LIL_OPTIMIZE_USE_FORWARDADD
             #define LIL_OPTIMIZE_USE_VERTEXLIGHT

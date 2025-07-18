@@ -459,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 275375128139159094, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
       propertyPath: _sfxSounds.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 275375128139159094, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
       propertyPath: _musicSounds.Array.size
@@ -488,6 +488,14 @@ PrefabInstance:
     - target: {fileID: 275375128139159094, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
       propertyPath: _sfxSounds.Array.data[2]._name
       value: Slash
+      objectReference: {fileID: 0}
+    - target: {fileID: 275375128139159094, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: _sfxSounds.Array.data[3]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a5ca9de430fe8fe3bae5b91b7868814, type: 3}
+    - target: {fileID: 275375128139159094, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: _sfxSounds.Array.data[3]._name
+      value: ClickClack
       objectReference: {fileID: 0}
     - target: {fileID: 275375128139159094, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
       propertyPath: _musicSounds.Array.data[0]._clip
@@ -586,8 +594,16 @@ PrefabInstance:
       value: 0.609
       objectReference: {fileID: 0}
     - target: {fileID: 275375128139159094, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: _sfxSounds.Array.data[3]._volume
+      value: 0.609
+      objectReference: {fileID: 0}
+    - target: {fileID: 275375128139159094, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
       propertyPath: _musicSounds.Array.data[0]._volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179818415462928647, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_Name
+      value: _sfxSource
       objectReference: {fileID: 0}
     - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -633,10 +649,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 3084174129162198759, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_Name
+      value: _musicSource
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2856023982987872725, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 673934956}
   m_SourcePrefab: {fileID: 100100000, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
 --- !u!4 &276198160 stripped
 Transform:
@@ -1418,6 +1441,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7472943608166612463, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
   m_PrefabInstance: {fileID: 722026018}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &673934953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2856023982987872725, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+  m_PrefabInstance: {fileID: 265517070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &673934956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673934953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c154f509f5fe58143ad32cc48c1e5fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _musicVolume: 1
+  _sfxVolume: 1
+  _startingMusic: 
+  _musicSounds: []
+  _sfxSounds: []
+  _npcSounds: []
+  _musicSource: {fileID: 0}
+  _sfxSource: {fileID: 0}
+  _npcSource: {fileID: 0}
 --- !u!4 &705545328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3682205282157455302, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -4569,7 +4618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _promptPrefab: {fileID: 4295777393522542165, guid: 86f577fd42e382f48bb29079fb93299b, type: 3}
   _promptLocation: {fileID: 1604874877}
-  _interactionTime: 10
+  _interactionTime: 5
   _isActive: 1
 --- !u!65 &1746170967
 BoxCollider:

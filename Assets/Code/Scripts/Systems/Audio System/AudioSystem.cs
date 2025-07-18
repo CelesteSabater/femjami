@@ -13,12 +13,14 @@ using femjami.Config;
 
 namespace femjami.Systems.AudioSystem
 {
+    public static class AudioData
+    {
+        public static float _musicVolume = 1;
+        public static float _sfxVolume = 1;
+    }
+
     public class AudioSystem : Singleton<AudioSystem>
     {
-        [Range(0, 1)]
-        [SerializeField] private float _musicVolume = 1;
-        [Range(0, 1)]
-        [SerializeField] private float _sfxVolume = 1;
         [SerializeField] private String _startingMusic;
         [SerializeField] private Sound[] _musicSounds, _sfxSounds, _npcSounds;
         [SerializeField] private AudioSource _musicSource, _sfxSource, _npcSource;
@@ -36,7 +38,7 @@ namespace femjami.Systems.AudioSystem
             return _currentMusic._name;
         }
 
-        public float GetMusicVolume() => _musicVolume; 
+        public float GetMusicVolume() => _musicVolume;
         public float GetSFXVolume() => _sfxVolume;
 
         private void Update()
@@ -56,11 +58,11 @@ namespace femjami.Systems.AudioSystem
         {
             CheckSources();
 
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             CheckFiles();
-            #endif
+#endif
 
-            if (_startingMusic != null && _currentMusic == null && _musicSource != null && _startingMusic != "") 
+            if (_startingMusic != null && _currentMusic == null && _musicSource != null && _startingMusic != "")
                 PlayMusic(_startingMusic);
         }
 
@@ -113,7 +115,7 @@ namespace femjami.Systems.AudioSystem
             _sfxSource.pitch = 1;
             if (randomPitch)
                 _sfxSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
-                
+
             _sfxSource.PlayOneShot(sfx._clip);
         }
 
@@ -152,7 +154,8 @@ namespace femjami.Systems.AudioSystem
             }
         }
 
-        public void PlayClipAt(AudioClip clip, Vector3 pos, float volume, bool randomPitch = true) {
+        public void PlayClipAt(AudioClip clip, Vector3 pos, float volume, bool randomPitch = true)
+        {
             GameObject tempGO = new GameObject("TempAudioGo");
             tempGO.transform.position = pos;
             AudioSource aSource = tempGO.AddComponent<AudioSource>();
@@ -163,7 +166,7 @@ namespace femjami.Systems.AudioSystem
             if (randomPitch)
                 aSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
 
-            aSource.volume = volume;    
+            aSource.volume = volume;
             aSource.Play();
             Destroy(tempGO, clip.length);
         }
@@ -177,7 +180,7 @@ namespace femjami.Systems.AudioSystem
         {
             StartCoroutine(SFXWithDelay(name, delay));
         }
-            
+
         public void PlaySFXWithDelay(string name, float delay, Vector3 location)
         {
             StartCoroutine(SFXWithDelay(name, delay, location));
@@ -219,7 +222,7 @@ namespace femjami.Systems.AudioSystem
             PlayClipAt(_npcSounds[i]._clip, Vector3.zero, _npcSounds[i]._volume);
         }
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         private void CheckFiles()
         {
             bool DONT_LOOP = false;
@@ -235,11 +238,11 @@ namespace femjami.Systems.AudioSystem
 
             List<string> npcSoundsFiles = FileLoader.GetFilesInDirectory(Directories.NPC_SOUNDS_DIRECTORY)
                             .Where(file => file.ToLower().EndsWith("mp3") || file.ToLower().EndsWith("wav"))
-                            .ToList();               
+                            .ToList();
 
             foreach (string filePath in musicFiles)
                 AddFileToList(filePath, ref _musicSounds, LOOP);
-            
+
             foreach (string filePath in sfxFiles)
                 AddFileToList(filePath, ref _sfxSounds, DONT_LOOP);
 
@@ -247,10 +250,10 @@ namespace femjami.Systems.AudioSystem
                 AddFileToList(filePath, ref _npcSounds, DONT_LOOP);
         }
 
-        private void AddFileToList(string filePath,ref Sound[] list, bool loop)
+        private void AddFileToList(string filePath, ref Sound[] list, bool loop)
         {
             string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(filePath);
-            
+
             Sound oldSound = Array.Find(list, x => x._name == fileNameWithoutExtension);
 
             if (oldSound != null)
@@ -260,13 +263,13 @@ namespace femjami.Systems.AudioSystem
 
             if (clip == null)
                 return;
-            
+
             Sound newSound = new Sound()
             {
                 _name = fileNameWithoutExtension,
                 _clip = clip,
-                _volume = 1.0f, 
-                _loop = loop 
+                _volume = 1.0f,
+                _loop = loop
             };
 
             list = list.Concat(new Sound[] { newSound }).ToArray();
@@ -279,14 +282,14 @@ namespace femjami.Systems.AudioSystem
         {
             string prefabPath = GetPrefabPath();
             GameObject existingPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
-            
+
             if (existingPrefab != null)
                 PrefabUtility.SaveAsPrefabAsset(gameObject, prefabPath);
             else
                 PrefabUtility.SaveAsPrefabAssetAndConnect(gameObject, prefabPath, InteractionMode.UserAction);
         }
 
-        private string GetPrefabPath() => Directories.SYSTEM_PREFABS_DIRECTORY+"/AudioSystem.prefab";
-        #endif
+        private string GetPrefabPath() => Directories.SYSTEM_PREFABS_DIRECTORY + "/AudioSystem.prefab";
+#endif
     }
 }

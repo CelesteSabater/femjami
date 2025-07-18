@@ -96,7 +96,7 @@
     "LIL_FEATURE_OutlineTex": true,
     "LIL_FEATURE_OutlineWidthMask": false,
     "LIL_FEATURE_OutlineVectorTex": false,
-    "LIL_FEATURE_FurNoiseMask": false,
+    "LIL_FEATURE_FurNoiseMask": true,
     "LIL_FEATURE_FurMask": false,
     "LIL_FEATURE_FurLengthMask": false,
     "LIL_FEATURE_FurVectorTex": false,
