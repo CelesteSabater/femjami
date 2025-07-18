@@ -563,6 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenuUI: {fileID: 0}
+  _subMenu: {fileID: 0}
   _ignoreUpdate: 1
 --- !u!82 &1622653040
 AudioSource:
@@ -668,6 +669,67 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622653034}
   m_Enabled: 1
+--- !u!1001 &2001862121
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 275375128139159094, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: _sfxSounds.Array.data[6]._clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d1a9f491e45d794c955012d57d331f7, type: 3}
+    - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795356367103670142, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856023982987872725, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+      propertyPath: m_Name
+      value: AudioSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
 --- !u!224 &185470475748362007
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1229,6 +1291,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1622653039}
+        m_TargetAssemblyTypeName: MenuSystem, Assembly-CSharp
+        m_MethodName: PlayCLickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!222 &2246424816870555616
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1347,6 +1421,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1622653039}
         m_TargetAssemblyTypeName: MenuSystem, Assembly-CSharp
         m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1622653039}
+        m_TargetAssemblyTypeName: MenuSystem, Assembly-CSharp
+        m_MethodName: PlayCLickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1927,6 +2013,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1622653039}
+        m_TargetAssemblyTypeName: MenuSystem, Assembly-CSharp
+        m_MethodName: PlayCLickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &4999818805883295206
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2333,6 +2431,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1622653039}
+        m_TargetAssemblyTypeName: MenuSystem, Assembly-CSharp
+        m_MethodName: PlayCLickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!222 &7231150958858311375
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2615,3 +2725,4 @@ SceneRoots:
   - {fileID: 1318000800}
   - {fileID: 1580238989}
   - {fileID: 1622653038}
+  - {fileID: 2001862121}

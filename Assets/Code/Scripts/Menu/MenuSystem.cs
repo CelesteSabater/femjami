@@ -3,6 +3,7 @@ using femjami.Utils.Singleton;
 using StarterAssets;
 using UnityEngine.SceneManagement;
 using femjami.Managers;
+using femjami.Systems.AudioSystem;
 
 public class MenuSystem : Singleton<MenuSystem>
 {
@@ -66,6 +67,11 @@ public class MenuSystem : Singleton<MenuSystem>
     public void LoadMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void PlayCLickSound()
+    {
+        AudioSystem.Instance.PlaySFX("UIClick");
     }
 
     public void Quit()

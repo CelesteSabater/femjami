@@ -244,6 +244,10 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 62c712d899a914e429fc78d09ebea566, type: 3}
     _loop: 0
     _volume: 1
+  - _name: UIClick
+    _clip: {fileID: 8300000, guid: 3d1a9f491e45d794c955012d57d331f7, type: 3}
+    _loop: 0
+    _volume: 1
   _npcSounds:
   - _name: keystroke_01
     _clip: {fileID: 8300000, guid: dad35d752d7e557909c5dfd998c9582c, type: 3}
