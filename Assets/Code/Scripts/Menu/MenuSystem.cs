@@ -7,10 +7,13 @@ using femjami.Managers;
 public class MenuSystem : Singleton<MenuSystem>
 {
     [SerializeField] private GameObject _pauseMenuUI;
+    [SerializeField] private GameObject _subMenu;
     private bool _pause;
     public bool GetIsPaused() => _pause;
     public bool SetPause(bool b) => _pause = b;
     private bool _gameOver = false;
+    public bool _ignoreUpdate = false;
+    private bool _isActive = false;
 
     private void Start()
     {
@@ -29,6 +32,7 @@ public class MenuSystem : Singleton<MenuSystem>
     public void Update()
     {
         if (_gameOver) return;
+        if (_ignoreUpdate) return;
         PauseGame();
     }
 
@@ -45,6 +49,18 @@ public class MenuSystem : Singleton<MenuSystem>
         _pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         SetPause(false);
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void SettingsLoop()
+    {
+        _isActive = !_isActive;
+        _pauseMenuUI.SetActive(_isActive);
+        if (_subMenu) _subMenu.SetActive(false);
     }
 
     public void LoadMenu()
