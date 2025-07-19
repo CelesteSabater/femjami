@@ -75,6 +75,11 @@ public class MenuSystem : Singleton<MenuSystem>
         SceneManager.LoadScene("Menu");
     }
 
+    public void PlayCLickSound()
+    {
+        AudioSystem.Instance.PlaySFX("UIClick");
+    }
+
     public void Quit()
     {
         Application.Quit();
