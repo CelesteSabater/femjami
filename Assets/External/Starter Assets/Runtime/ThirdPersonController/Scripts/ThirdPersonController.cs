@@ -93,6 +93,7 @@ namespace StarterAssets
         [SerializeField] private float distanceBetweenParticles = 1.0f;
         [SerializeField] private float timeBetweenInstantiates = 1.0f;
         [SerializeField] private float multiplierToDestroy = 10;
+        [SerializeField] private GameObject _pointerArrow;
         private float timeCounter = 0;
 
         [Header("Listening Mode")]
@@ -246,6 +247,7 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
+
             if (_inDialogue || _gameOver || MenuSystem.Instance.GetIsPaused())
             {
                 Cursor.lockState = CursorLockMode.None;
@@ -534,7 +536,10 @@ namespace StarterAssets
             }
 
             if (!isSmellActive)
+            {
+                _pointerArrow.SetActive(false);
                 return;
+            }
                 
             if (timeCounter > 0)
             {
@@ -544,9 +549,15 @@ namespace StarterAssets
 
             for (int i = 0; i < targets.Count(); i++)
             {
-                if (targets[i] != null)
-                    GenerateSmeellPath(targets[i]);
+                if (targets[i])
+                {
+                    LookAtObject lookAtObject = _pointerArrow.GetComponent<LookAtObject>();
+                    lookAtObject.SetItem(targets[i].transform);
+                    break;
+                }
             }
+
+            _pointerArrow.SetActive(true);
 
             timeCounter = timeBetweenInstantiates;
         }
@@ -604,29 +615,6 @@ namespace StarterAssets
             }
 
             sneakSlider.value = _input.sneak ? 0 : 1;
-        }
-
-        private void GenerateSmeellPath(Transform target)
-        {
-            NavMeshPath path = new NavMeshPath();
-            if (NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path))
-            {
-                for (int i = 0; i < path.corners.Length - 1; i++)
-                {
-                    Vector3 start = path.corners[i];
-                    Vector3 end = path.corners[i + 1];
-                    float segmentDistance = Vector3.Distance(start, end);
-                    int particlesInSegment = (int)(segmentDistance / distanceBetweenParticles);
-
-                    for (int j = 0; j < particlesInSegment; j++)
-                    {
-                        Vector3 point = Vector3.Lerp(start, end, j / (float)particlesInSegment);
-                        GameObject go = Instantiate(smellParticles, point, Quaternion.identity);
-                        go.transform.LookAt(target);
-                        StartCoroutine(Destroy(go, timeBetweenInstantiates * multiplierToDestroy));
-                    }
-                }
-            }
         }
 
         IEnumerator Destroy(GameObject go, float time)

@@ -10,22 +10,30 @@ namespace femjami.UI
         [SerializeField] private GameObject DialogueBox;
         [SerializeField] private GameObject ButtonHolder;
         [SerializeField] private GameObject _choiceButtonPrefab;
-        
+        [SerializeField] private GameObject _inGameScreeUI;
+
         public void ActivateDialogue()
         {
             DialogueCanvas.SetActive(true);
+            _inGameScreeUI.SetActive(false);
         }
 
         public void DisableDialogue()
         {
             DialogueBox.transform.Find("Text").GetComponent<TMPro.TextMeshProUGUI>().text = "";
             DialogueCanvas.SetActive(false);
+            _inGameScreeUI.SetActive(true);
         }
 
 
         public void SetTextDialogue(string text)
         {
             DialogueBox.transform.Find("Text").GetComponent<TMPro.TextMeshProUGUI>().text = text;
+        }
+
+        public void SetTextName(string text)
+        {
+            DialogueBox.transform.Find("Name").GetComponent<TMPro.TextMeshProUGUI>().text = text;
         }
 
         public string GetTextDialogue()

@@ -33,9 +33,10 @@ namespace femjami.DialogueTree.Runtime
         public float _moveTimeoutDelta;
         
         private bool _inDialogue = false;
+        public bool GetInDialogue() => _inDialogue;
         private void SetInDialogue(bool value)
         {
-             _inDialogue = value;
+            _inDialogue = value;
         }
 
         private DialogueTree _dialogueTree;
@@ -385,6 +386,10 @@ namespace femjami.DialogueTree.Runtime
             string originalText = _currentNode._text; 
             string displayedText = "";
             bool isTag = false;
+
+            if (_npcData) UIManager.Instance.SetTextName(_npcData._npcName);
+            PlayerText playerText = _currentNode as PlayerText;
+            if (playerText) UIManager.Instance.SetTextName("Lobo Feroz");
 
             foreach (var style in _styleFormats)
             {

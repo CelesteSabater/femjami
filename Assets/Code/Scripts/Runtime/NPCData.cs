@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using femjami.Managers;
 using femjami.Systems.AudioSystem;
 using Project.BehaviourTree.Runtime;
@@ -54,22 +55,22 @@ namespace femjami.runtime
             GameEvents.current.onMakeSound -= ReciveSound;
         }
 
-        public Vector3 GetInvestigatePosition()
+        public UnityEngine.Vector3 GetInvestigatePosition()
         {
             float x = UnityEngine.Random.Range(-_investigateArea, _investigateArea);
             float z = UnityEngine.Random.Range(-_investigateArea, _investigateArea);
-            return new Vector3(x + transform.position.x, transform.position.y, z + transform.position.z);
+            return new UnityEngine.Vector3(x + transform.position.x, transform.position.y, z + transform.position.z);
         }
 
-        public Vector3 GetNextPatrolPoint()
+        public UnityEngine.Vector3 GetNextPatrolPoint()
         {
             _currentObjectivePoint += 1;
             return _patrolPoints[_currentObjectivePoint % _patrolPoints.Length].transform.position;
         }
 
-        public Vector3 ChasePlayer()
+        public UnityEngine.Vector3 ChasePlayer()
         {
-            Vector3 destination = GameObject.FindGameObjectWithTag("Player").transform.position;
+            UnityEngine.Vector3 destination = GameObject.FindGameObjectWithTag("Player").transform.position;
             GoToPosition(destination);
 
             return destination;
@@ -110,10 +111,10 @@ namespace femjami.runtime
         {
             direction = Mathf.Repeat(direction, 360f);
 
-            Vector3 targetDirection = Quaternion.Euler(0, direction, 0) * Vector3.forward;
+            UnityEngine.Vector3 targetDirection = UnityEngine.Quaternion.Euler(0, direction, 0) * UnityEngine.Vector3.forward;
 
-            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-            transform.rotation = Quaternion.RotateTowards(
+            UnityEngine.Quaternion targetRotation = UnityEngine.Quaternion.LookRotation(targetDirection);
+            transform.rotation = UnityEngine.Quaternion.RotateTowards(
                 transform.rotation, 
                 targetRotation, 
                 180 * Time.deltaTime
@@ -125,7 +126,7 @@ namespace femjami.runtime
                 _animator.SetFloat("Vertical", 0, 0.25f, Time.deltaTime);
             }   
             
-            float angleDifference = Quaternion.Angle(transform.rotation, targetRotation);
+            float angleDifference = UnityEngine.Quaternion.Angle(transform.rotation, targetRotation);
             if (angleDifference < 1f)
                 _animator.SetFloat("Horizontal", 0, 0.5f, Time.deltaTime);
 
@@ -142,9 +143,11 @@ namespace femjami.runtime
             _animator.SetFloat("Vertical", 0, .25f, Time.deltaTime);
         }
 
-        public bool IsNPCInLocation(Vector3 location)
+        public bool IsNPCInLocation(UnityEngine.Vector3 location)
         {
-            float distance = Vector3.Distance(transform.position, location);
+            UnityEngine.Vector3 locationY = new UnityEngine.Vector3(location.x, 0, location.z);
+            UnityEngine.Vector3 positionY = new UnityEngine.Vector3(transform.position.x, 0, transform.position.z);
+            float distance = UnityEngine.Vector3.Distance(positionY, locationY);
             bool inPosition = distance <= _meleeDistance;
 
             if (inPosition)
@@ -155,7 +158,7 @@ namespace femjami.runtime
 
         public bool IsPlayerInMelee()
         {
-            Vector3 destination = GameObject.FindGameObjectWithTag("Player").transform.position;
+            UnityEngine.Vector3 destination = GameObject.FindGameObjectWithTag("Player").transform.position;
             return IsNPCInLocation(destination);
         }
 
@@ -176,9 +179,9 @@ namespace femjami.runtime
             if (animator) animator.Play("UnPop");
         }
 
-        public void ReciveSound(Vector3 soundOrigin, float maxDistance)
+        public void ReciveSound(UnityEngine.Vector3 soundOrigin, float maxDistance)
         {
-            float distance = Vector3.Distance(transform.position, soundOrigin);
+            float distance = UnityEngine.Vector3.Distance(transform.position, soundOrigin);
             if (distance > maxDistance) return;
 
             bool SOUND_DETECTED = true;

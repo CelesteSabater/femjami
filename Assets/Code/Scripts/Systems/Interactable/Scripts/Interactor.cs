@@ -1,6 +1,7 @@
 using System.Linq;
 using StarterAssets;
 using femjami.Managers;
+using femjami.DialogueTree.Runtime;
 using UnityEngine;
 using femjami.Utils.Singleton;
 using femjami.Systems.Interactable;
@@ -23,6 +24,7 @@ namespace femjami.Systems.Interactable
         {
             if (MenuSystem.Instance.GetIsPaused())
                 return;
+            if (DialogueSystem.Instance.GetInDialogue()) return;
 
             CheckSoundMakers();
             CheckInteractable();

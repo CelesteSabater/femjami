@@ -1,0 +1,295 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7495512362695606085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137eb93b7fa231b4dba92d853c261399, type: 3}
+  m_Name: EndDialogue
+  m_EditorClassIdentifier: 
+  _text: Eso, vete.
+  _guid: 35a5e5883985a400ea16bc848f70e645
+  _position: {x: 6, y: 1586}
+  _blackboard:
+    _npcData: {fileID: 0}
+    _animator: {fileID: 0}
+  _startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _npcTheme: 
+--- !u!114 &-2952768624207171118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae897595d6827d4e938ca01d28c0e13, type: 3}
+  m_Name: PlayerText
+  m_EditorClassIdentifier: 
+  _text: "Y no solo a m\xED, \n\xA1Quieren cazar a todos los animales del bosque!"
+  _guid: 0cff9ca0f6841d255b7f83db20596da8
+  _position: {x: 0, y: 380.67993}
+  _blackboard:
+    _npcData: {fileID: 0}
+    _animator: {fileID: 0}
+  _startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _npcTheme: 
+  _child: {fileID: 399368883222691810}
+--- !u!114 &-1618673548582231816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae897595d6827d4e938ca01d28c0e13, type: 3}
+  m_Name: PlayerText
+  m_EditorClassIdentifier: 
+  _text: "Jop\xE9, mejor vuelvo cuando haya encontrado\ntodas las trampas."
+  _guid: a05256fcbc1c6cf219e705b0ac57d8fb
+  _position: {x: 6, y: 1402.6799}
+  _blackboard:
+    _npcData: {fileID: 0}
+    _animator: {fileID: 0}
+  _startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _npcTheme: 
+  _child: {fileID: -7495512362695606085}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609f70c3b537f684f95f7a3624654c67, type: 3}
+  m_Name: CazadorNotAllTraps
+  m_EditorClassIdentifier: 
+  _rootNode: {fileID: 1299613893821869160}
+  _nodes:
+  - {fileID: 1299613893821869160}
+  - {fileID: -7495512362695606085}
+  - {fileID: 1021295510247212065}
+  - {fileID: -2952768624207171118}
+  - {fileID: 399368883222691810}
+  - {fileID: 434834144454302557}
+  - {fileID: 951284405573102478}
+  - {fileID: 7364329933269120105}
+  - {fileID: 494502909562306981}
+  - {fileID: -1618673548582231816}
+  _blackboard:
+    _npcData: {fileID: 11400000, guid: 5332a43aec58ff3f0aab8c5e5fccdd01, type: 2}
+    _animator: {fileID: 0}
+  _nextDialogueTree: {fileID: 0}
+--- !u!114 &399368883222691810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4d646313b7d0443ad980e654853e60, type: 3}
+  m_Name: NPCText
+  m_EditorClassIdentifier: 
+  _text: "Como va a ser m\xEDa. \nMira, no s\xE9 qu\xE9 est\xE1s tramando,\npero
+    este bosque no es tuyo."
+  _guid: 4ba3d8e729d671223a8c6d7c0009b1de
+  _position: {x: 0, y: 571.67993}
+  _blackboard:
+    _npcData: {fileID: 0}
+    _animator: {fileID: 0}
+  _startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _npcTheme: 
+  _child: {fileID: 434834144454302557}
+--- !u!114 &434834144454302557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae897595d6827d4e938ca01d28c0e13, type: 3}
+  m_Name: PlayerText
+  m_EditorClassIdentifier: 
+  _text: "\xBFDe vedad no te parece raro que\nhaya una trampas en medio del bosque?"
+  _guid: f938e275ca1a16520bbaf29914641158
+  _position: {x: 6, y: 749.67993}
+  _blackboard:
+    _npcData: {fileID: 0}
+    _animator: {fileID: 0}
+  _startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _npcTheme: 
+  _child: {fileID: 951284405573102478}
+--- !u!114 &494502909562306981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae897595d6827d4e938ca01d28c0e13, type: 3}
+  m_Name: PlayerText
+  m_EditorClassIdentifier: 
+  _text: "Vamos gradull\xF3n, sal del modo jubilado \nun segundo e investiga a la
+    abuela y a la ni\xF1a."
+  _guid: 667ca877112fb257aa10e6a87db12bdb
+  _position: {x: 6, y: 1092.6799}
+  _blackboard:
+    _npcData: {fileID: 0}
+    _animator: {fileID: 0}
+  _startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _npcTheme: 
+  _child: {fileID: 7364329933269120105}
+--- !u!114 &951284405573102478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4d646313b7d0443ad980e654853e60, type: 3}
+  m_Name: NPCText
+  m_EditorClassIdentifier: 
+  _text: 'Anda, vete a oler flores o cazar conejos
+
+    o lo que sea que hagas y
+    no vuelvas. '
+  _guid: f5d13ac71c36cccd88b8169fd4a4c42f
+  _position: {x: 6, y: 954.67993}
+  _blackboard:
+    _npcData: {fileID: 0}
+    _animator: {fileID: 0}
+  _startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _npcTheme: 
+  _child: {fileID: 494502909562306981}
+--- !u!114 &1021295510247212065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae897595d6827d4e938ca01d28c0e13, type: 3}
+  m_Name: PlayerText
+  m_EditorClassIdentifier: 
+  _text: "No, esta vez no es eso. \n\xA1Pero necesito tu ayuda!\n\xA1Caperucita Roja
+    y la Abuelita me quieren cazar!"
+  _guid: 3522278d3c4e908709f18dc342327447
+  _position: {x: 0, y: 198.67993}
+  _blackboard:
+    _npcData: {fileID: 0}
+    _animator: {fileID: 0}
+  _startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _npcTheme: 
+  _child: {fileID: -2952768624207171118}
+--- !u!114 &1299613893821869160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2d7fcff5f9de34ca86517b1ac30fdf, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  _text: "Hola Lobo Feroz, qu\xE9 quieres, \n\xBFTe has perdido otra vez?"
+  _guid: 4f1aec20dfe164601b2f64cb94e8d579
+  _position: {x: 0, y: 0}
+  _blackboard:
+    _npcData: {fileID: 0}
+    _animator: {fileID: 0}
+  _startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _npcTheme: 
+  _child: {fileID: 1021295510247212065}
+--- !u!114 &7364329933269120105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4d646313b7d0443ad980e654853e60, type: 3}
+  m_Name: NPCText
+  m_EditorClassIdentifier: 
+  _text: "\xA1Pi\xE9rdete!"
+  _guid: e04e66e8d6fc8eb768ab9c5b7daba794
+  _position: {x: 6, y: 1275.6799}
+  _blackboard:
+    _npcData: {fileID: 0}
+    _animator: {fileID: 0}
+  _startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _npcTheme: 
+  _child: {fileID: -1618673548582231816}

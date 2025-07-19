@@ -19,7 +19,7 @@ namespace femjami.Systems.Interactable
 
         public bool IsActive() => _isActive;
         public bool SetActive(bool active) => _isActive = active;
-        private bool delay = false;
+        private bool delay = true;
 
         private GameObject _promptGo;
 
@@ -47,8 +47,10 @@ namespace femjami.Systems.Interactable
 
         public bool Interact(Interactor interactor)
         {
+            if (DialogueSystem.Instance.GetInDialogue()) return true;
+
             if (!delay)
-            { 
+            {
                 GameEvents.current.SetDialogue(true);
                 DialogueSystem.Instance.StartDialogue(_dialogueTree, _npcData);
             }
