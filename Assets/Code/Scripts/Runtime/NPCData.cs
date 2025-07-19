@@ -195,7 +195,7 @@ namespace femjami.runtime
                 if (FootstepAudioClips.Length > 0)
                 {
                     var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, _agent.speed / _runSpeed);
+                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, _agent.speed / _runSpeed * AudioData._sfxVolume);
                     GameObject ripple = Instantiate(FootstepRippleEffect, transform.position, transform.rotation);
                     float scale = SoundEffectsBySpeed.Evaluate(_agent.speed);
                     ripple.transform.localScale = ripple.transform.localScale * scale;

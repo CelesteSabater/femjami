@@ -423,7 +423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &185634321
 Transform:
   m_ObjectHideFlags: 0
@@ -656,10 +656,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2856023982987872725, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 673934956}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
 --- !u!4 &276198160 stripped
 Transform:
@@ -1441,32 +1438,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7472943608166612463, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
   m_PrefabInstance: {fileID: 722026018}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &673934953 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2856023982987872725, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
+--- !u!114 &673934954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 275375128139159094, guid: 06ef4296fb3335a86b1d06ad93ef81c2, type: 3}
   m_PrefabInstance: {fileID: 265517070}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &673934956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673934953}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c154f509f5fe58143ad32cc48c1e5fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _musicVolume: 1
-  _sfxVolume: 1
-  _startingMusic: 
-  _musicSounds: []
-  _sfxSounds: []
-  _npcSounds: []
-  _musicSource: {fileID: 0}
-  _sfxSource: {fileID: 0}
-  _npcSource: {fileID: 0}
 --- !u!4 &705545328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3682205282157455302, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -8107,7 +8089,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 673934954}
+        m_TargetAssemblyTypeName: femjami.Systems.AudioSystem.AudioSystem, Assembly-CSharp
+        m_MethodName: MusicVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &3840879220481019531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8924,7 +8918,7 @@ RectTransform:
   m_Father: {fileID: 1027059229588126783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9550,7 +9544,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 673934954}
+        m_TargetAssemblyTypeName: femjami.Systems.AudioSystem.AudioSystem, Assembly-CSharp
+        m_MethodName: SFXVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5754427866827824113
 GameObject:
   m_ObjectHideFlags: 0
@@ -10759,7 +10765,7 @@ RectTransform:
   m_Father: {fileID: 5523195687273071960}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11019,6 +11025,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 8898881063433820506, guid: 70e5621eca2bfc4c38305ef35088534c, type: 3}
+      propertyPath: _sfxSlider
+      value: 
+      objectReference: {fileID: 5647289162179665613}
+    - target: {fileID: 8898881063433820506, guid: 70e5621eca2bfc4c38305ef35088534c, type: 3}
+      propertyPath: _musicSlider
+      value: 
+      objectReference: {fileID: 3803390691743309349}
     - target: {fileID: 8898881063433820506, guid: 70e5621eca2bfc4c38305ef35088534c, type: 3}
       propertyPath: _pauseMenuUI
       value: 

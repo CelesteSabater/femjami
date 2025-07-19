@@ -3,11 +3,16 @@ using femjami.Utils.Singleton;
 using StarterAssets;
 using UnityEngine.SceneManagement;
 using femjami.Managers;
+using UnityEngine.UI;
+using femjami.Systems.AudioSystem;
 
 public class MenuSystem : Singleton<MenuSystem>
 {
     [SerializeField] private GameObject _pauseMenuUI;
     [SerializeField] private GameObject _subMenu;
+    [SerializeField] private Slider _musicSlider;
+    [SerializeField] private Slider _sfxSlider;
+
     private bool _pause;
     public bool GetIsPaused() => _pause;
     public bool SetPause(bool b) => _pause = b;
@@ -18,6 +23,8 @@ public class MenuSystem : Singleton<MenuSystem>
     private void Start()
     {
         GameEvents.current.onLoseGame += GameOver;
+        if (_sfxSlider) _sfxSlider.value = AudioData._sfxVolume;
+        if (_musicSlider) _musicSlider.value = AudioData._musicVolume;
     }
 
     private void OnDestroy()

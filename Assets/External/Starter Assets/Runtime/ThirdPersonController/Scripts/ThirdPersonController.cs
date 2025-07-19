@@ -4,6 +4,12 @@ using System.Linq;
 using System.Collections;
 using UnityEngine.AI;
 using TMPro;
+using femjami.Systems.AudioSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal; 
+using Cinemachine.PostFX;
+
+
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -67,6 +73,7 @@ namespace StarterAssets
         [Header("Cinemachine")]
         [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
         public GameObject CinemachineCameraTarget;
+        public CinemachineVolumeSettings cinemachineVolumeSettings;
 
         [Tooltip("How far in degrees can you move the camera up")]
         public float TopClamp = 70.0f;
@@ -464,7 +471,7 @@ namespace StarterAssets
                 if (FootstepAudioClips.Length > 0)
                 {
                     var index = Random.Range(0, FootstepAudioClips.Length);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), _speed / SprintSpeed);
+                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), _speed / SprintSpeed * AudioData._sfxVolume);
                     GameObject ripple = Instantiate(FootstepRippleEffect, transform.position, transform.rotation);
                     float scale = SoundEffectsBySpeed.Evaluate(_speed);
                     ripple.transform.localScale = ripple.transform.localScale * scale;
@@ -477,7 +484,7 @@ namespace StarterAssets
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), _speed / SprintSpeed);
+                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), _speed / SprintSpeed * AudioData._sfxVolume);
                 GameObject ripple = Instantiate(FootstepRippleEffect, transform.position, transform.rotation);
                 ripple.transform.localScale = ripple.transform.localScale * 30;
                 GameEvents.current.MakeSound(transform.position, 30);
@@ -549,7 +556,11 @@ namespace StarterAssets
             if (StarterAssetsInputs.Instance.listen && currentListenCooldown <= 0 && !isListenActive)
             {
                 isListenActive = true;
-                listenActiveTime = listenDuration;
+                listenActiveTime = listenDuration;   
+            }
+            
+            if (isListenActive)
+            {
                 StartListenMode();
             }
             else if (!isListenActive)
@@ -629,6 +640,14 @@ namespace StarterAssets
             if (_currentlyListening) return;
             _currentlyListening = true;
             auxiliarCamera.gameObject.SetActive(true);
+            if (cinemachineVolumeSettings.m_Profile.TryGet(out ColorAdjustments colorAdjustments))
+            {
+                colorAdjustments.saturation.value = Mathf.Lerp(
+                    colorAdjustments.saturation.value,
+                    -100,
+                    Time.deltaTime * 5f
+                );
+            }
         }
 
         void StopListenMode()
@@ -636,6 +655,14 @@ namespace StarterAssets
             if (!_currentlyListening) return;
             _currentlyListening = false;
             auxiliarCamera.gameObject.SetActive(false);
+            if (cinemachineVolumeSettings.m_Profile.TryGet(out ColorAdjustments colorAdjustments))
+            {
+                colorAdjustments.saturation.value = Mathf.Lerp(
+                    colorAdjustments.saturation.value,
+                    -8,
+                    Time.deltaTime * 5f
+                );
+            }
         }
     }
 }
