@@ -636,7 +636,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7074f0c8248030341b5aae11aa6b1050, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51a821b2cbbdba447bf301da0edb22e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -772,6 +772,44 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1572788293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1572788294}
+  m_Layer: 5
+  m_Name: Buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1572788294
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572788293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5862137079990934638}
+  - {fileID: 1351945423310077773}
+  - {fileID: 168487926889344572}
+  m_Father: {fileID: 5249070369538797262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -573, y: -70}
+  m_SizeDelta: {x: 515, y: 396}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1622653034
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +931,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pauseMenuUI: {fileID: 98941130330017093}
   _subMenu: {fileID: 2539420494846855087}
+  _musicSlider: {fileID: 0}
+  _sfxSlider: {fileID: 0}
   _ignoreUpdate: 1
 --- !u!82 &1622653040
 AudioSource:
@@ -1198,11 +1238,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1867209318802503931}
-  m_Father: {fileID: 5249070369538797262}
+  m_Father: {fileID: 1572788294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -652, y: -218}
+  m_AnchoredPosition: {x: 0, y: -148}
   m_SizeDelta: {x: 515, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &473394592347822609
@@ -1278,9 +1318,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "EQUIPO FRES\xD3N\n\nProgramaci\xF3n y Shaders- Celeste Sabater\nModelado
-    3D y Texturizado - F\xE9lix\nRigging, Guion y Escenario - Mel  Rojas (Khuniuwu)\nUX/UI
-    y Concept Art - Luc\xEDa Molinero\n\nOTROS RECURSOS\n\nliltoon, magicacloth2,
-    kenney input prompts"
+    3D y Texturizado - F\xE9lix\nRigging, Shader y Fisicas de personajes, Guion y
+    Escenario - Mel  Rojas (Khuniuwu)\nUX/UI y Concept Art - Luc\xEDa Molinero\n\nOTROS
+    RECURSOS\n\nliltoon, magicacloth2, kenney input prompts, HIGHLANDS, La senda
+    de Carol - Instinto Animal"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb09624945584ea4085b73e29c49f798, type: 2}
   m_sharedMaterial: {fileID: -485479659124005027, guid: cb09624945584ea4085b73e29c49f798, type: 2}
@@ -1617,11 +1658,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2889633923901686717}
-  m_Father: {fileID: 5249070369538797262}
+  m_Father: {fileID: 1572788294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -652, y: -70}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 515, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1426383574021952145
@@ -2046,7 +2087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7074f0c8248030341b5aae11aa6b1050, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51a821b2cbbdba447bf301da0edb22e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3083,9 +3124,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5862137079990934638}
-  - {fileID: 1351945423310077773}
-  - {fileID: 168487926889344572}
+  - {fileID: 1572788294}
   - {fileID: 5444890360755106614}
   m_Father: {fileID: 1622653038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3220,11 +3259,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5827069827819070061}
-  m_Father: {fileID: 5249070369538797262}
+  m_Father: {fileID: 1572788294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -652, y: 78}
+  m_AnchoredPosition: {x: 0, y: 148}
   m_SizeDelta: {x: 515, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5891173131047634369

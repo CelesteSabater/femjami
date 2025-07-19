@@ -11742,7 +11742,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7074f0c8248030341b5aae11aa6b1050, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51a821b2cbbdba447bf301da0edb22e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11829,9 +11829,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "EQUIPO FRES\xD3N\n\nProgramaci\xF3n y Shaders- Celeste Sabater\nModelado
-    3D y Texturizado - F\xE9lix\nRigging, Guion y Escenario - Mel  Rojas (Khuniuwu)\nUX/UI
-    y Concept Art - Luc\xEDa Molinero\n\nOTROS RECURSOS\n\nliltoon, magicacloth2,
-    kenney input prompts"
+    3D y Texturizado - F\xE9lix\nRigging, Shader y Fisicas de personajes, Guion y
+    Escenario - Mel  Rojas (Khuniuwu)\nUX/UI y Concept Art - Luc\xEDa Molinero\n\nOTROS
+    RECURSOS\n\nliltoon, magicacloth2, kenney input prompts, HIGHLANDS, La senda
+    de Carol - Instinto Animal"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb09624945584ea4085b73e29c49f798, type: 2}
   m_sharedMaterial: {fileID: -485479659124005027, guid: cb09624945584ea4085b73e29c49f798, type: 2}
