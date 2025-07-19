@@ -60,7 +60,7 @@ public class MenuSystem : Singleton<MenuSystem>
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Forest");
     }
 
     public void SettingsLoop()

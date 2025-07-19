@@ -29,12 +29,12 @@ namespace Project.BehaviourTree.Runtime
             }
 
             if (_blackboard._npcData.IsNPCInLocation(_blackboard._nextPatrolPoint))
-                {
-                    _blackboard._nextPatrolPoint = _blackboard._npcData.GetNextPatrolPoint();
-                    return State.Success;
-                }
-                else
-                    return State.Running;
+            {
+                _blackboard._nextPatrolPoint = _blackboard._npcData.GetNextPatrolPoint();
+                return State.Success;
+            }
+            else
+                return State.Running;
         }
     }
 }

@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: RandomRepeat
   m_EditorClassIdentifier: 
   _guid: 73c78188-1a0d-48af-b81c-896a8171d8af
-  _position: {x: 869.06354, y: 469.00003}
+  _position: {x: 869, y: 469}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: Sequencer
   m_EditorClassIdentifier: 
   _guid: 3f8ac90e-aff4-42be-b0fc-426784917093
-  _position: {x: 719.0636, y: 326.00003}
+  _position: {x: 736.0001, y: 326}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: Patrol
   m_EditorClassIdentifier: 
   _guid: a6e62ead-c12b-4fbd-ab3b-594e60afea37
-  _position: {x: 569.0636, y: 468.00003}
+  _position: {x: 585.54755, y: 468}
   _blackboard:
     _gameObject: {fileID: 0}
     _nextPatrolPoint: {x: 0, y: 0, z: 0}
