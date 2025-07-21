@@ -65,7 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: "Jop\xE9, mejor vuelvo cuando haya encontrado\ntodas las trampas."
   _guid: a05256fcbc1c6cf219e705b0ac57d8fb
-  _position: {x: 6, y: 1402.6799}
+  _position: {x: 6, y: 1403}
   _blackboard:
     _npcData: {fileID: 0}
     _animator: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   _text: "Como va a ser m\xEDa. \nMira, no s\xE9 qu\xE9 est\xE1s tramando,\npero
     este bosque no es tuyo."
   _guid: 4ba3d8e729d671223a8c6d7c0009b1de
-  _position: {x: 0, y: 571.67993}
+  _position: {x: 0, y: 573}
   _blackboard:
     _npcData: {fileID: 0}
     _animator: {fileID: 0}
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: "\xA1Pi\xE9rdete!"
   _guid: e04e66e8d6fc8eb768ab9c5b7daba794
-  _position: {x: 6, y: 1275.6799}
+  _position: {x: 6, y: 1276}
   _blackboard:
     _npcData: {fileID: 0}
     _animator: {fileID: 0}
