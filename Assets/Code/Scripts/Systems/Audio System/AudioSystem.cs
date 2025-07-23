@@ -41,6 +41,11 @@ namespace femjami.Systems.AudioSystem
         public float GetMusicVolume() => AudioData._musicVolume;
         public float GetSFXVolume() => AudioData._sfxVolume;
 
+        private void Start()
+        {
+            StartMusic();
+        }
+
         private void Update()
         {
             if (_currentMusic != null) CheckIsPlaying();
@@ -57,10 +62,6 @@ namespace femjami.Systems.AudioSystem
         public void StartMusic()
         {
             CheckSources();
-
-#if UNITY_EDITOR
-            CheckFiles();
-#endif
 
             if (_startingMusic != null && _currentMusic == null && _musicSource != null && _startingMusic != "")
                 PlayMusic(_startingMusic);
@@ -137,7 +138,8 @@ namespace femjami.Systems.AudioSystem
         public void MusicVolume(float volume)
         {
             AudioData._musicVolume = volume;
-            _musicSource.volume = AudioData._musicVolume * _currentMusic._volume;
+            if (_currentMusic != null)
+                _musicSource.volume = AudioData._musicVolume * _currentMusic._volume;
         }
         public void SFXVolume(float volume)
         {
@@ -221,75 +223,5 @@ namespace femjami.Systems.AudioSystem
 
             PlayClipAt(_npcSounds[i]._clip, Vector3.zero, _npcSounds[i]._volume);
         }
-
-#if UNITY_EDITOR
-        private void CheckFiles()
-        {
-            bool DONT_LOOP = false;
-            bool LOOP = true;
-
-            List<string> musicFiles = FileLoader.GetFilesInDirectory(Directories.MUSIC_DIRECTORY)
-                                    .Where(file => file.ToLower().EndsWith("mp3") || file.ToLower().EndsWith("wav"))
-                                    .ToList();
-
-            List<string> sfxFiles = FileLoader.GetFilesInDirectory(Directories.SOUND_DIRECTORY)
-                            .Where(file => file.ToLower().EndsWith("mp3") || file.ToLower().EndsWith("wav"))
-                            .ToList();
-
-            List<string> npcSoundsFiles = FileLoader.GetFilesInDirectory(Directories.NPC_SOUNDS_DIRECTORY)
-                            .Where(file => file.ToLower().EndsWith("mp3") || file.ToLower().EndsWith("wav"))
-                            .ToList();
-
-            foreach (string filePath in musicFiles)
-                AddFileToList(filePath, ref _musicSounds, LOOP);
-
-            foreach (string filePath in sfxFiles)
-                AddFileToList(filePath, ref _sfxSounds, DONT_LOOP);
-
-            foreach (string filePath in npcSoundsFiles)
-                AddFileToList(filePath, ref _npcSounds, DONT_LOOP);
-        }
-
-        private void AddFileToList(string filePath, ref Sound[] list, bool loop)
-        {
-            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(filePath);
-
-            Sound oldSound = Array.Find(list, x => x._name == fileNameWithoutExtension);
-
-            if (oldSound != null)
-                return;
-
-            AudioClip clip = LoadAudioClip(filePath);
-
-            if (clip == null)
-                return;
-
-            Sound newSound = new Sound()
-            {
-                _name = fileNameWithoutExtension,
-                _clip = clip,
-                _volume = 1.0f,
-                _loop = loop
-            };
-
-            list = list.Concat(new Sound[] { newSound }).ToArray();
-            SavePrefab();
-        }
-
-        private AudioClip LoadAudioClip(string path) => UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>(path);
-
-        private void SavePrefab()
-        {
-            string prefabPath = GetPrefabPath();
-            GameObject existingPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
-
-            if (existingPrefab != null)
-                PrefabUtility.SaveAsPrefabAsset(gameObject, prefabPath);
-            else
-                PrefabUtility.SaveAsPrefabAssetAndConnect(gameObject, prefabPath, InteractionMode.UserAction);
-        }
-
-        private string GetPrefabPath() => Directories.SYSTEM_PREFABS_DIRECTORY + "/AudioSystem.prefab";
-#endif
     }
 }
