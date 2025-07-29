@@ -17,6 +17,10 @@ namespace femjami.Managers
         #region STEALTH
         public event Action<Vector3, float> onMakeSound;
         public void MakeSound(Vector3 soundOrigin, float maxDistance) => onMakeSound?.Invoke(soundOrigin, maxDistance);
+        public event Action onStartListeningMode;
+        public void StartListeningMode() => onStartListeningMode?.Invoke();
+        public event Action onEndListeningMode;
+        public void EndListeningMode() => onEndListeningMode?.Invoke();
         #endregion
 
         #region GAME

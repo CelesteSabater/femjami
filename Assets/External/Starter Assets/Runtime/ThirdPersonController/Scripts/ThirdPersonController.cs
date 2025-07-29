@@ -567,9 +567,9 @@ namespace StarterAssets
             if (StarterAssetsInputs.Instance.listen && currentListenCooldown <= 0 && !isListenActive)
             {
                 isListenActive = true;
-                listenActiveTime = listenDuration;   
+                listenActiveTime = listenDuration;
             }
-            
+
             if (isListenActive)
             {
                 StartListenMode();
@@ -625,32 +625,55 @@ namespace StarterAssets
 
         void StartListenMode()
         {
-            if (_currentlyListening) return;
-            _currentlyListening = true;
-            auxiliarCamera.gameObject.SetActive(true);
             if (cinemachineVolumeSettings.m_Profile.TryGet(out ColorAdjustments colorAdjustments))
             {
                 colorAdjustments.saturation.value = Mathf.Lerp(
                     colorAdjustments.saturation.value,
                     -100,
-                    Time.deltaTime * 5f
+                    Time.deltaTime * 2f
                 );
             }
+
+            if (cinemachineVolumeSettings.m_Profile.TryGet(out Vignette vignette))
+            {
+                vignette.intensity.value = Mathf.Lerp(
+                    vignette.intensity.value,
+                    0.5f,
+                    Time.deltaTime * 2f
+                );
+            }
+
+
+            if (_currentlyListening) return;
+            _currentlyListening = true;
+            auxiliarCamera.gameObject.SetActive(true);
+            GameEvents.current.StartListeningMode();
         }
 
         void StopListenMode()
         {
-            if (!_currentlyListening) return;
-            _currentlyListening = false;
-            auxiliarCamera.gameObject.SetActive(false);
             if (cinemachineVolumeSettings.m_Profile.TryGet(out ColorAdjustments colorAdjustments))
             {
                 colorAdjustments.saturation.value = Mathf.Lerp(
                     colorAdjustments.saturation.value,
                     -8,
-                    Time.deltaTime * 5f
+                    Time.deltaTime * 1f
                 );
             }
+
+            if (cinemachineVolumeSettings.m_Profile.TryGet(out Vignette vignette))
+            {
+                vignette.intensity.value = Mathf.Lerp(
+                    vignette.intensity.value,
+                    0.45f,
+                    Time.deltaTime * 1f
+                );
+            }
+
+            if (!_currentlyListening) return;
+            _currentlyListening = false;
+            auxiliarCamera.gameObject.SetActive(false);
+            GameEvents.current.EndListeningMode();
         }
     }
 }
